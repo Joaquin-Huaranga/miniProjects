@@ -5,15 +5,15 @@ import {FooterLayout} from "./FooterLayout.jsx";
 
 export const BaseLayout = ({children}) => {
     return (
-        <div>
+        <Container>
             <HeaderLayout/>
             <div className="main">{children}</div>
             <FooterLayout/>
-        </div>
+        </Container>
     );
 };
 
-const container = styled.div`
+const Container = styled.div`
 .main{
     
 }

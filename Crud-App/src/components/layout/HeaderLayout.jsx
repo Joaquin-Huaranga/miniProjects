@@ -4,9 +4,20 @@ import styled from "styled-components";
 export const HeaderLayout = () => {
     return (
         <Container>
-            <h1>Header</h1>
+            <h1>To-Do List</h1>
         </Container>
     );
 };
 
-const Container = styled.div``;
+const Container = styled.div`
+    height: 5em;
+    background-color: #eee;
+    text-align: center;
+    border: solid white;
+    align-content: center;
+    color: darkslateblue;
+    h1{
+        
+        font-family: "Bell MT" ;
+    }
+`;

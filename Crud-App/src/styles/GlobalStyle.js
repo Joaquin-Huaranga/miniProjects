@@ -1,6 +1,9 @@
 import { createGlobalStyle, css } from "styled-components";
 
 const global = css`
+    @tailwind base;
+    @tailwind components;
+    @tailwind utilities;
   * {
     margin: 0;
     padding: 0;
@@ -10,8 +13,10 @@ const global = css`
 
   body {
     font-size: 15px;
-    background-color: gray;
+    background-color: white;
   }
 `;
 
-export const GlobalStyle = createGlobalStyle`${global}`;
+export const GlobalStyle = createGlobalStyle`
+    ${global}
+`;
