@@ -17,7 +17,6 @@ const Container = styled.div`
     align-content: center;
     color: darkslateblue;
     h1{
-        
-        font-family: "Bell MT" ;
-    }
+
+        font-family: "Berlin Sans FB";    }
 `;
