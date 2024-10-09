@@ -1,10 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from "styled-components";
 
 export const PresentationSection = () => {
     const [tasks, setTasks] = useState([]);
     const [task, setTask] = useState('');
     const [editTaskIndex, setEditTaskIndex] = useState(null);
+
+    // Cargar tareas desde localStorage al iniciar
+    useEffect(() => {
+        const savedTasks = JSON.parse(localStorage.getItem('tasks')) || [];
+        setTasks(savedTasks);
+    }, []);
+
+    // Guardar tareas en localStorage cada vez que cambian
+    useEffect(() => {
+        localStorage.setItem('tasks', JSON.stringify(tasks));
+    }, [tasks]);
 
     const addTask = () => {
         if (task.trim()) {
