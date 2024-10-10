@@ -27,6 +27,7 @@ export const FooterLayout = () => {
 };
 
 const Container = styled.div`
+    margin-top: 2em;
     width: 100%;
     height: auto;
     background-color: #eee;
