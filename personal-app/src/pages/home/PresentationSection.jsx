@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import styled from "styled-components";
 import {Map} from "./Map.jsx"
 import {useJsApiLoader} from "@react-google-maps/api";
@@ -9,7 +9,7 @@ const geofence_center ={
     lat : -12.169378,
     lng: -77.020962,
 }
-const geofence_radius = 70
+const geofence_radius = 60
 
 const haversine = (lat1, lon1, lat2, lon2) => {
     const R = 6371e3; // Radio de la Tierra en metros
@@ -40,24 +40,19 @@ export const PresentationSection = () => {
     });
 
     const [userLocation, setUserLocation] = useState(null);
+    const [isInGeofence, setIsInGeofence] = useState(false);
     const [status, setStatus] = useState('')
+    const [time,setTime] = useState(0)
+    const [intervalId,setIntervalId] = useState(null)
 
     const handleGetLocation  =()=>{
         if (navigator.geolocation){
-            setStatus('Fetching location...');
-            console.log('Fetching location...')
+            setStatus('Buscando ubicacion...');
+            console.log('Buscando ubicacion...')
             navigator.geolocation.getCurrentPosition((position)=>{
                 const {latitude,longitude} = position.coords;
                 setUserLocation({lat:latitude,lng:longitude});
                 console.log("user coords", userLocation)
-
-                if (isWithinGeofence(userLocation)){
-                    setStatus('Dentro de la geocerca')
-                    console.log('Dentro de la geocerca')
-                }else{
-                    setStatus('Fuera de la geocerca')
-                    console.log('Fuera de la geocerca')
-                }
 
             },
                 (error)=>{
@@ -67,6 +62,35 @@ export const PresentationSection = () => {
             console.error("Su navegador no cuenta con la geolocalizacion")
         }
     }
+    useEffect(() => {
+        if (userLocation) {
+            const withinGeofence = isWithinGeofence(userLocation);
+            setIsInGeofence(withinGeofence);
+            setStatus(withinGeofence ? 'Dentro de la geocerca' : 'Fuera de la geocerca');
+        }
+    }, [userLocation]);
+    useEffect(() => {
+        if (isInGeofence) {
+            // Iniciar el cronómetro
+            const id = setInterval(() => {
+                setTime(prevTime => prevTime + 1);
+            }, 1000);
+            setIntervalId(id);
+        } else {
+            // Detener el cronómetro si el usuario sale de la geocerca
+            if (intervalId) {
+                clearInterval(intervalId);
+                setIntervalId(null);
+            }
+        }
+
+        return () => {
+            // Limpiar el intervalo al desmontar el componente
+            if (intervalId) {
+                clearInterval(intervalId);
+            }
+        };
+    }, [isInGeofence]);
 
     return (
         <Container>
@@ -74,7 +98,8 @@ export const PresentationSection = () => {
                     <ButtonAssist onClick={handleGetLocation}>
                         Marcar Asistencia
                     </ButtonAssist>
-
+                    <StatusMessage>{status}</StatusMessage>
+                    {isInGeofence && <Timer><p>beta</p>{time} segundos</Timer>}
                 </center>
 
             <Map isLoaded = {isLoaded} userLocation = {userLocation}/>
@@ -98,6 +123,8 @@ const ButtonGroup = styled.div`
 const ButtonAssist = styled.button`
     margin: 2em;
     padding: 1em;
+    font-size: 1.4em;
+    font-family: "Bell MT";
     border-color: blue;
     border-radius: 2em;
     background-color: white;
@@ -108,4 +135,14 @@ const ButtonAssist = styled.button`
         color: white;
         border-color: white;
     }
+`;
+const Timer = styled.div`
+    margin: 1em;
+    font-size: 1.5em;
+    color: white;
+`;
+const StatusMessage = styled.div`
+    margin: 1em;
+    font-size: 1.2em;
+    color: white;
 `;

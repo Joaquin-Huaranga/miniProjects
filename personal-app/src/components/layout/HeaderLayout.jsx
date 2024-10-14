@@ -10,13 +10,14 @@ export const HeaderLayout = () => {
 };
 
 const Container = styled.div`
-    height: 5em;
-    background-color: #eee;
+    height: 10em;
+    
+    background-color: white;
     text-align: center;
-    border: solid white;
+    border: solid black;
     align-content: center;
     color: darkslateblue;
     h1{
-
+        font-size: 4em;
         font-family: "Berlin Sans FB";    }
 `;

@@ -8,10 +8,10 @@ export const Map = (props) => {
     const {isLoaded,userLocation} = props;
 
     const containerStyle = {
-        border: "0.3em solid black",
+        border: "0.5em solid black",
         borderRadius:"2em",
         width : "100%",
-        height: "40em",
+        height: "45em",
     };
 
     const center = {
@@ -26,7 +26,7 @@ export const Map = (props) => {
 
     const geocerca = {
         center: center, // Centro de la geocerca
-        radius: 70, // Radio en metros
+        radius: 60, // Radio en metros
     };
 
     const markers = [
