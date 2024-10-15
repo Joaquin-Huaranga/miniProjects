@@ -40,7 +40,7 @@ const Container = styled.div`
     padding: 1em;
     p {
         color: #444;
-        font-size: 0.7em;
+        font-size: 1em;
         margin: 0;
     }
 
@@ -53,7 +53,7 @@ const Container = styled.div`
         align-items: center;
         gap: 2.5em;
         li {
-            font-size: 0.7em;
+            font-size: 1em;
             font-weight: 400;
             a {
                 text-decoration: none;

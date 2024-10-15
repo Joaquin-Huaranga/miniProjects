@@ -29,32 +29,6 @@ export const Map = (props) => {
         radius: 60, // Radio en metros
     };
 
-    const markers = [
-        {name:"station-1",
-            location:{
-                lat: -12.207239,
-                lng: -76.933328
-            }
-        },
-        {name:"station-2",
-            location:{
-                lat: -12.195987,
-                lng: -76.940148
-            }
-        },
-        {name:"station-3",
-            location:{
-                lat: -12.182457,
-                lng: -76.946869
-            }
-        },
-        {name:"station-4",
-            location:{
-                lat: -12.169096,
-                lng: -76.950360
-            }
-        },
-    ]
     return isLoaded && (
         <>
         <GoogleMap
@@ -76,9 +50,6 @@ export const Map = (props) => {
                     strokeWeight: 1.6,
                 }}
             />
-            {markers.map((marker) => (
-                <Marker key={marker.name} position={marker.location} />
-            ))}
             {userLocation && <Marker position={userLocation}/>}
         </GoogleMap>
         </>
