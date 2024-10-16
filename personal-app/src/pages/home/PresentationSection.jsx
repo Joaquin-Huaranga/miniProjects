@@ -4,30 +4,15 @@ import {Map} from "./Map.jsx"
 import {useJsApiLoader} from "@react-google-maps/api";
 import {mapOptions} from "./MapConfigurations.jsx";
 import {Table} from "./Table.jsx";
+import {FormatTime} from "./ExtraComponents/formatTime.jsx";
+import {haversine} from "./ExtraComponents/haversineForm.jsx";
 
 //(MIO) CONSTANTE CON DATOS SOBRE LAS COORDENADAS Y RADIO DE LA GEOCERCA
-const geofence_center ={
+export const geofence_center ={
     lat : -12.169378,
     lng: -77.020962,
 }
-const geofence_radius = 60
-
-//FÓRMULA PARA HALLAR LA DISTANCIA ENTRE DOS PUNTOS GEOGRÁFICOS
-const haversine = (lat1, lon1, lat2, lon2) => {
-    const R = 6371e3; // Radio de la Tierra en metros
-    const toRad = (value) => (value * Math.PI) / 180; // Convertir grados a radianes
-
-    const dLat = toRad(lat2 - lat1);
-    const dLon = toRad(lon2 - lon1);
-
-    const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-        Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) *
-        Math.sin(dLon / 2) * Math.sin(dLon / 2);
-
-    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-
-    return R * c; // Distancia en metros
-};
+export const geofence_radius = 60
 
 //CONSTANTE PARA COMPROBAR SI LA UBICACION DEL USUARIO ESTÁ DENTRO DE LA GEOCERCA
 const isWithinGeofence = (userLocation) => {
@@ -58,12 +43,13 @@ export const PresentationSection = () => {
     const [status, setStatus] = useState('')
     const [time,setTime] = useState(0)
     const [intervalId,setIntervalId] = useState(null)
+    const [entryTime,setEntryTime] = useState(null)
 
     //FUNCION PARA CONSEGUIR LA UBICACION DE USUARIO
     const handleGetLocation  =()=>{
         if (navigator.geolocation){
             setStatus('Buscando ubicacion...');
-            console.log('Buscando ubicacion...')
+            // console.log('Buscando ubicacion...')
             navigator.geolocation.getCurrentPosition((position)=>{
                 const {latitude,longitude} = position.coords;
                 setUserLocation({lat:latitude,lng:longitude});
@@ -78,35 +64,65 @@ export const PresentationSection = () => {
     }
 
     //PARA AGREGAR LA HORA A LA TABLA
-    const handleMarkAttendance = ()=>{
-        const currentHour = new Date().toLocaleDateString([],{hour:'2-digit',minute: '2-digit'});
+    const handleAttendance = (type) => {
+        const currentHour = new Date().toLocaleDateString([], { hour: '2-digit', minute: '2-digit' });
         const dayIndex = new Date().getDay();
-        const newEntries = [...attendanceData.entries];
-        newEntries[dayIndex] = currentHour;
 
-        setAttendanceData(prevData => ({
-            ...prevData,
-            entries: newEntries
-        }))
-    }
+        if (type==='entry'){
+            setEntryTime(Date.now());
+        }
+        setAttendanceData(prevData => {
+            const newEntries = type === 'entry' ? [...prevData.entries] : prevData.entries;
+            const newExits = type === 'exit' ? [...prevData.exits] : prevData.exits;
+            if (type === 'entry') {
+                newEntries[dayIndex] = currentHour;
+            } else {
+                newExits[dayIndex] = currentHour;
+            }
+            return {
+                ...prevData,
+                entries: newEntries,
+                exits: newExits,
+            };
+        });
+    };
 
-    const handleExitAttendance = ()=>{
-        const currentHour = new Date().toLocaleDateString([],{hour:'2-digit',minute: '2-digit'});
-        const dayIndex = new Date().getDay();
-        const newExits = [...attendanceData.exits];
-        newExits[dayIndex] = currentHour;
+// USO DE LOS BOTONES DE MARCA Y SALIDA
+    const handleButtonClick = () => {
+        handleGetLocation();
+        handleAttendance('entry');
+    };
 
-        setAttendanceData(prevData => ({
-            ...prevData,
-            exits: newExits
-        }))
-    }
+    const handleExitAttendance = () => {
+        handleAttendance('exit');
+        setStatus('Salida')
+        setUserLocation(null)
+        setIsInGeofence(false)
 
-    const handleButtonClick = ()=>{
+        if (intervalId){
+            clearInterval(intervalId);
+            setIntervalId(null);
+            setTime(0)
+        }
 
-        handleGetLocation()
-        handleMarkAttendance()
-    }
+        const currentExitTime = Date.now();
+        const timeSpent = Math.floor((currentExitTime-entryTime)/1000)
+        const formattedTimeSpent = FormatTime(timeSpent)
+        const dayIndex  = new Date().getDay();
+        setAttendanceData(prevData =>{
+            const newTotals = [...prevData.totals];
+            newTotals[dayIndex] = formattedTimeSpent;
+
+            return{
+                ...prevData,
+                totals: newTotals,
+            }
+        })
+        //REGRESAR EL TIEMPO A 0
+        setTimeout(() => {
+            setStatus('');
+        }, 1000);
+    };
 
     //USO DE EFECTO DEPENDIENDO DE SI EL USUARIO ESTÁ DENTRO O NO DE LA GEOCERCA
     useEffect(() => {
@@ -114,7 +130,7 @@ export const PresentationSection = () => {
             const withinGeofence = isWithinGeofence(userLocation);
             setIsInGeofence(withinGeofence);
             setStatus(withinGeofence ? 'Acceso Correcto' : 'Fuera del rango');
-            console.log("user coords", userLocation)
+            // console.log("user coords", userLocation)
         }
     }, [userLocation]);
 
@@ -156,7 +172,7 @@ export const PresentationSection = () => {
                         Marcar Salida
                     </ButtonExit>
                     </ButtonGroup>
-                    {isInGeofence && <Timer><p>beta</p>{time} segundos</Timer>}
+                    {isInGeofence && <Timer>{FormatTime(time)}</Timer>}
                 </center>
             <Map isLoaded = {isLoaded} userLocation = {userLocation}/>
 
@@ -211,6 +227,10 @@ const ButtonExit = styled.button`
     }
 `;
 const Timer = styled.div`
+    max-width: 10%;
+    width: 100%;
+    border: 0.2em solid white;
+    background-color: black;
     margin: 1em;
     font-size: 1.5em;
     color: white;
