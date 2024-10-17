@@ -12,9 +12,8 @@ export const HeaderLayout = () => {
 const Container = styled.div`
     height: 10em;
     
-    background-color: white;
+    background-color: lightblue;
     text-align: center;
-    border: solid black;
     align-content: center;
     color: darkslateblue;
     h1{

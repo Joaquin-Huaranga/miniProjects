@@ -6,6 +6,7 @@ import {mapOptions} from "./MapConfigurations.jsx";
 import {Table} from "./Table.jsx";
 import {FormatTime} from "./ExtraComponents/formatTime.jsx";
 import {haversine} from "./ExtraComponents/haversineForm.jsx";
+import {convertTimeToMinutes} from "./ExtraComponents/ConvertMinutes.jsx";
 
 //(MIO) CONSTANTE CON DATOS SOBRE LAS COORDENADAS Y RADIO DE LA GEOCERCA
 export const geofence_center ={
@@ -44,6 +45,35 @@ export const PresentationSection = () => {
     const [time,setTime] = useState(0)
     const [intervalId,setIntervalId] = useState(null)
     const [entryTime,setEntryTime] = useState(null)
+
+    const handleCalculateTotal = () => {
+        let totalWorkedMinutes = 0;
+        let totalLunchTime = 0;
+        let totalHours = 0;
+
+        for (let i = 0; i < 7; i++) {
+            const totalTime = attendanceData.totals[i];
+            const lunch = parseInt(attendanceData.lunches[i], 10) || 0;
+
+            const workedMinutes = convertTimeToMinutes(totalTime)
+
+            totalWorkedMinutes +=workedMinutes
+            totalLunchTime += lunch;
+        }
+
+        // Convertimos los minutos trabajados en horas y minutos
+        totalHours = Math.floor(totalWorkedMinutes / 60);
+        const remainingMinutes = Math.floor(totalWorkedMinutes % 60);
+        const totalTimeString = `${totalHours}h ${remainingMinutes}m`;
+
+        // Actualizamos el estado con los totales calculados
+        setAttendanceData((prevData) => ({
+            ...prevData,
+            totalTime: totalTimeString,
+            totalMinutes: totalWorkedMinutes,
+            totalLunch: totalLunchTime,
+        }));
+    };
 
     //FUNCION PARA CONSEGUIR LA UBICACION DE USUARIO
     const handleGetLocation  =()=>{
@@ -134,29 +164,56 @@ export const PresentationSection = () => {
         }
     }, [userLocation]);
 
-    //EFECTO PARA COMENZAR LA CUENTA DEL CRONOMETRO SOLO SI EL USUARIO SE MANTIENE DENTRO DE LA GEOCERCA
-    useEffect(() => {
-        if (isInGeofence) {
-            // Iniciar el cronómetro
-            const id = setInterval(() => {
-                setTime(prevTime => prevTime + 1);
-            }, 1000);
-            setIntervalId(id);
-        } else {
-            // Detener el cronómetro si el usuario sale de la geocerca
-            if (intervalId) {
-                clearInterval(intervalId);
-                setIntervalId(null);
-            }
-        }
+    // //EFECTO PARA COMENZAR LA CUENTA DEL CRONOMETRO SOLO SI EL USUARIO SE MANTIENE DENTRO DE LA GEOCERCA
+    // useEffect(() => {
+    //     if (isInGeofence) {
+    //         // Iniciar el cronómetro
+    //         const id = setInterval(() => {
+    //             setTime(prevTime => prevTime + 1);
+    //         }, 1000);
+    //         setIntervalId(id);
+    //     } else {
+    //         // Detener el cronómetro si el usuario sale de la geocerca
+    //         if (intervalId) {
+    //             clearInterval(intervalId);
+    //             setIntervalId(null);
+    //         }
+    //     }
+    //
+    //     return () => {
+    //         // Limpiar el intervalo al desmontar el componente
+    //         if (intervalId) {
+    //             clearInterval(intervalId);
+    //         }
+    //     };
+    // }, [isInGeofence]);
 
-        return () => {
-            // Limpiar el intervalo al desmontar el componente
-            if (intervalId) {
-                clearInterval(intervalId);
+    const handleButtonYes = () =>{
+
+        const dayIndex  = new Date().getDay();
+        setAttendanceData(prevData =>{
+            const newLunches = [...prevData.lunches];
+            newLunches[dayIndex] = '8';
+            return{
+                ...prevData,
+                lunches: newLunches,
             }
-        };
-    }, [isInGeofence]);
+        })
+
+    }
+    const handleButtonNo = () =>{
+
+        const dayIndex  = new Date().getDay();
+        setAttendanceData(prevData =>{
+            const newLunches = [...prevData.lunches];
+            newLunches[dayIndex] = '0';
+            return{
+                ...prevData,
+                lunches: newLunches,
+            }
+        })
+
+    }
 
 
 
@@ -172,11 +229,17 @@ export const PresentationSection = () => {
                         Marcar Salida
                     </ButtonExit>
                     </ButtonGroup>
-                    {isInGeofence && <Timer>{FormatTime(time)}</Timer>}
+                    {/*{isInGeofence && <Timer>{FormatTime(time)}</Timer>}*/}
                 </center>
             <Map isLoaded = {isLoaded} userLocation = {userLocation}/>
 
-            <Table attendanceData={attendanceData}/>
+            <ButtonGroupLunch>
+                <h2>Pediste Almuerzo?</h2>
+                <ButtonYes onClick={handleButtonYes}>Si</ButtonYes>
+                <ButtonNo onClick={handleButtonNo}>No</ButtonNo>
+            </ButtonGroupLunch>
+
+            <Table attendanceData={attendanceData} onCalculateTotal={handleCalculateTotal}/>
         </Container>
     );
 };
@@ -215,13 +278,13 @@ const ButtonExit = styled.button`
     font-size: 1.4em;
     font-weight: bolder;
     font-family: "Bell MT";
-    border-color: blue;
+    border-color: red;
     border-radius: 2em;
     background-color: white;
-    color: blue;
+    color: red;
     
     &:hover{
-        background-color: blue;
+        background-color: red;
         color: white;
         border-color: white;
     }
@@ -250,4 +313,45 @@ const StatusMessage = styled.button`
         font-family: "Bell MT";
     }
 
+`;
+
+const ButtonGroupLunch = styled.div`
+    margin: 2em auto;
+    display: block;
+    width: 30%;
+    height: auto;
+    border: 0.3em solid gray;
+    background-color: white;
+    h2{
+        text-align: center;
+        margin: 1em;
+        font-family:"Bell MT";
+        font-size: 2.2em;
+    }
+`;
+const ButtonYes = styled.button`
+    font-size: 1.3em;
+    margin: 1em;
+    width: 38%;
+    height: 5em;
+    border: 0.3em solid green;
+    background-color: greenyellow;
+    &:hover{
+        background-color: green;
+        color: greenyellow;
+        border-color: greenyellow;
+    }
+`;
+const ButtonNo = styled.button`
+    font-size: 1.3em;
+    margin: 1em;
+    width: 38%;
+    height: 5em;
+    border: 0.3em solid red;
+    background-color: indianred;
+    &:hover{
+    background-color: red ;
+    color: indianred;
+    border-color: indianred;
+}
 `;

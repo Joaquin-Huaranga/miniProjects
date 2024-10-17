@@ -1,20 +1,21 @@
 import React from 'react';
 import styled from "styled-components";
 
-export const Table = ({attendanceData}) => {
+export const Table = ({attendanceData,onCalculateTotal}) => {
+
     return (
         <Container>
             <h1>Control de asistencia</h1>
             <TableContainer>
                 <thead>
                 <tr>
-                    <th className="Control">Control</th>
+                    <th scope="col" className="Control">Control</th>
                     <th></th>
-                    <th>Lunes</th>
-                    <th>Martes</th>
-                    <th>Miércoles</th>
-                    <th>Jueves</th>
-                    <th>Viernes</th>
+                    <th scope="col">Lunes</th>
+                    <th scope="col">Martes</th>
+                    <th scope="col">Miércoles</th>
+                    <th scope="col">Jueves</th>
+                    <th scope="col">Viernes</th>
                     <th></th>
                 </tr>
                 </thead>
@@ -50,18 +51,21 @@ export const Table = ({attendanceData}) => {
                 <tbody>
                 <tr>
                     <th>Horas y minutos</th>
-                    <td></td>
+                    <td>{attendanceData.totalTime}</td>
                 </tr>
                 <tr>
                     <th>Total minutos</th>
-                    <td></td>
+                    <td>{attendanceData.totalMinutes}</td>
                 </tr>
                 <tr>
                     <th>Total Almuerzo</th>
-                    <td></td>
+                    <td>{attendanceData.totalLunch}</td>
                 </tr>
                 </tbody>
             </DataTable>
+            <ButtonCalculateTotal onClick={onCalculateTotal}>
+                Calcular Total
+            </ButtonCalculateTotal>
         </Container>
     );
 };
@@ -73,7 +77,7 @@ const Container = styled.div`
     border: 0.3em solid black;
     width: 100%;
     height: auto;
-    background-color: lightcyan;
+    background-color: #6DBE45; /* Verde ligeramente más suave */
 
     h1 {
         text-align: center;
@@ -123,23 +127,43 @@ const TableContainer = styled.table`
 
 const DataTable = styled.table`
     color: black;
-    width: 50%;
-    margin: 5%;
+    width: 60%;
+    margin: 2em auto;
     border-collapse: collapse;
     border: 0.2em solid black;
-    tr{
+    tr {
         height: 3em;
         text-align: center;
         align-content: center;
         border: 0.2em solid black;
     }
-    th{
+    th {
         background-color: gray;
+        padding: 0.5em;
         border: 0.2em solid black;
     }
-    td{
+    td {
         color: black;
         background-color: darkgrey;
         border: 0.2em solid black;
+        padding: 0.5em;
+    }
+`;
+const ButtonCalculateTotal = styled.button`
+    padding: 1em;
+    display: block;
+    margin: 0 auto;
+    font-size: 1.4em;
+    font-weight: bolder;
+    font-family: "Bell MT";
+    border-color: greenyellow;
+    border-radius: 2em;
+    background-color: darkgreen;
+    color: greenyellow;
+
+    &:hover{
+        background-color: greenyellow;
+        color: darkgreen;
+        border-color: darkgreen;
     }
 `;
