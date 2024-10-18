@@ -2,6 +2,7 @@ import React from 'react';
 import styled from "styled-components";
 import {HeaderLayout} from "./HeaderLayout.jsx";
 import {FooterLayout} from "./FooterLayout.jsx";
+import {backPhoto} from "../../../public/index.js";
 
 export const BaseLayout = ({children}) => {
     return (
@@ -17,5 +18,9 @@ const Container = styled.div`
 .main{
     
 }
-    background-color: darkslateblue;
+    background-image: url(${backPhoto});
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed ;
 `;

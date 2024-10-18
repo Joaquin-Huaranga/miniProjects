@@ -71,7 +71,7 @@ export const PresentationSection = () => {
             ...prevData,
             totalTime: totalTimeString,
             totalMinutes: totalWorkedMinutes,
-            totalLunch: totalLunchTime,
+            totalLunch: ("S/"+totalLunchTime+".00 / S/40.00"),
         }));
     };
 
@@ -79,10 +79,19 @@ export const PresentationSection = () => {
     const handleGetLocation  =()=>{
         if (navigator.geolocation){
             setStatus('Buscando ubicacion...');
-            // console.log('Buscando ubicacion...')
             navigator.geolocation.getCurrentPosition((position)=>{
                 const {latitude,longitude} = position.coords;
                 setUserLocation({lat:latitude,lng:longitude});
+
+                const withinGeofence = isWithinGeofence({lat:latitude, lng:longitude})
+                setIsInGeofence(withinGeofence)
+
+                    if (withinGeofence) {
+                        handleAttendance('entry');
+                        setStatus('Entrada registrada correctamente.');
+                    } else {
+                        setStatus('Fuera del rango. No se puede registrar la entrada.');
+                    }
 
             },
                 (error)=>{
@@ -101,7 +110,7 @@ export const PresentationSection = () => {
         if (type==='entry'){
             setEntryTime(Date.now());
         }
-        setAttendanceData(prevData => {
+        setAttendanceData((prevData) => {
             const newEntries = type === 'entry' ? [...prevData.entries] : prevData.entries;
             const newExits = type === 'exit' ? [...prevData.exits] : prevData.exits;
             if (type === 'entry') {
@@ -118,9 +127,16 @@ export const PresentationSection = () => {
     };
 
 // USO DE LOS BOTONES DE MARCA Y SALIDA
+
+
+
     const handleButtonClick = () => {
         handleGetLocation();
-        handleAttendance('entry');
+        if (isInGeofence){
+            handleAttendance('entry');
+        }else{
+            setStatus('Fuera de rango,')
+        }
     };
 
     const handleExitAttendance = () => {
@@ -221,11 +237,11 @@ export const PresentationSection = () => {
         <Container>
                 <center>
                     <ButtonGroup>
-                    <ButtonAssist onClick={handleButtonClick}>
+                    <ButtonAssist aria-label="Marcar Asistencia" onClick={handleButtonClick}>
                         Marcar Asistencia
                     </ButtonAssist>
                     <StatusMessage><p>{status}</p></StatusMessage>
-                    <ButtonExit onClick={handleExitAttendance}>
+                    <ButtonExit aria-label="Marcar Salida" onClick={handleExitAttendance}>
                         Marcar Salida
                     </ButtonExit>
                     </ButtonGroup>
@@ -260,16 +276,15 @@ const ButtonAssist = styled.button`
     padding: 1em;
     font-size: 1.4em;
     font-weight: bolder;
-    font-family: "Bell MT";
-    border-color: blue;
-    border-radius: 2em;
-    background-color: white;
-    color: blue;
-    
+    font-family: apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    border: none;
+    border-radius: 1em;
+    background-color: rgba(64,150,255,1);
+    color: white;
+
     &:hover{
-        background-color: blue;
-        color: white;
-        border-color: white;
+        background-color: white;
+        color: rgba(64,150,255,1);
     }
 `;
 
@@ -277,16 +292,15 @@ const ButtonExit = styled.button`
     padding: 1em;
     font-size: 1.4em;
     font-weight: bolder;
-    font-family: "Bell MT";
-    border-color: red;
-    border-radius: 2em;
-    background-color: white;
-    color: red;
+    font-family: apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    border: none;
+    border-radius: 1em;
+    background-color: rgba(64,150,255,1);
+    color: white;
     
     &:hover{
-        background-color: red;
-        color: white;
-        border-color: white;
+        background-color: white;
+        color: rgba(64,150,255,1);
     }
 `;
 const Timer = styled.div`
@@ -316,16 +330,18 @@ const StatusMessage = styled.button`
 `;
 
 const ButtonGroupLunch = styled.div`
+    color: gray;
+    border-radius: 1em;
     margin: 2em auto;
     display: block;
-    width: 30%;
+    width: 35%;
     height: auto;
     border: 0.3em solid gray;
     background-color: white;
     h2{
         text-align: center;
         margin: 1em;
-        font-family:"Bell MT";
+        font-family:apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";;
         font-size: 2.2em;
     }
 `;
@@ -334,12 +350,15 @@ const ButtonYes = styled.button`
     margin: 1em;
     width: 38%;
     height: 5em;
-    border: 0.3em solid green;
-    background-color: greenyellow;
+    border: none;
+    border-radius: 1em;
+    background-color: rgba(64,150,255,1);
+    color: white;
+
     &:hover{
-        background-color: green;
-        color: greenyellow;
-        border-color: greenyellow;
+        background-color: white;
+        color: rgba(64,150,255,1);
+        border: 1px solid rgba(64,150,255,1);
     }
 `;
 const ButtonNo = styled.button`
@@ -347,11 +366,15 @@ const ButtonNo = styled.button`
     margin: 1em;
     width: 38%;
     height: 5em;
-    border: 0.3em solid red;
-    background-color: indianred;
+    border: none;
+    border-radius: 1em;
+    background-color: rgba(64,150,255,1);
+    color: white;
+
     &:hover{
-    background-color: red ;
-    color: indianred;
-    border-color: indianred;
+        background-color: white;
+        color: rgba(64,150,255,1);
+        border: 1px solid rgba(64,150,255,1);
+    }
 }
 `;

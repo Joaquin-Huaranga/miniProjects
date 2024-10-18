@@ -74,23 +74,21 @@ const Container = styled.div`
     margin-top: 2em;
     padding: 2em;
     border-radius: 2em;
-    border: 0.3em solid black;
+    border: 0.3em solid gray;
     width: 100%;
     height: auto;
-    background-color: #6DBE45; /* Verde ligeramente más suave */
+    background-color: rgba(233,238,246,1);
 
     h1 {
         text-align: center;
-        font-family: "Bell MT";
-        text-decoration: underline;
+        font-family:apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";;
         font-size: 3em;
         font-weight: bold;
-        color: black;
+        color: gray;
     }
 `;
 
 const TableContainer = styled.table`
-    
     color: white;
     max-width: 90%;
     width: 90%;
@@ -100,8 +98,8 @@ const TableContainer = styled.table`
 
     th {
         color: black;
-        border: 0.3em solid black;
-        background-color: orange;
+        border: none;
+        background-color: lightblue;
     }
     th.estado{
         background-color: lightblue;
@@ -109,18 +107,18 @@ const TableContainer = styled.table`
     }
     th.Control{
         color: white;
-        background-color: black;
+        background-color: rgba(64,150,255,1);
     }
     tr {
         height: 3.5em;
         text-align: center;
         align-content: center;
-        border: 0.2em solid black;
+        border: 1px solid black;
     }
     td {
         color: black;
-        border: 0.2em solid black;
-        background-color: greenyellow;
+        border: none;
+        background-color: white;
     }
     
 `;
@@ -138,32 +136,31 @@ const DataTable = styled.table`
         border: 0.2em solid black;
     }
     th {
-        background-color: gray;
+        background-color: rgba(64,150,255,1);
         padding: 0.5em;
         border: 0.2em solid black;
     }
     td {
         color: black;
-        background-color: darkgrey;
+        background-color: white;
         border: 0.2em solid black;
         padding: 0.5em;
     }
 `;
 const ButtonCalculateTotal = styled.button`
+    border-radius: 1em;
+    border: none;
     padding: 1em;
     display: block;
     margin: 0 auto;
     font-size: 1.4em;
     font-weight: bolder;
-    font-family: "Bell MT";
-    border-color: greenyellow;
-    border-radius: 2em;
-    background-color: darkgreen;
-    color: greenyellow;
+    font-family:apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";;
+    background-color: rgba(64,150,255,1);
+    color: white;
 
     &:hover{
-        background-color: greenyellow;
-        color: darkgreen;
-        border-color: darkgreen;
+        background-color: white;
+        color: rgba(64,150,255,1);
     }
 `;

@@ -12,11 +12,12 @@ export const HeaderLayout = () => {
 const Container = styled.div`
     height: 10em;
     
-    background-color: lightblue;
+    background-color: rgba(66,62,236,1);
     text-align: center;
     align-content: center;
-    color: darkslateblue;
+    color: white;
     h1{
         font-size: 4em;
-        font-family: "Berlin Sans FB";    }
+        font-family:apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";;
+    }
 `;
