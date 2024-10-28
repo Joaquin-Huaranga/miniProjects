@@ -45,6 +45,29 @@ export const PresentationSection = () => {
     const [time,setTime] = useState(0)
     const [intervalId,setIntervalId] = useState(null)
     const [entryTime,setEntryTime] = useState(null)
+    const [hasEntered, setHasEntered] = useState(false)
+
+    useEffect(() => {
+        const savedAttendanceData = localStorage.getItem('attendanceData')
+        const savedHasEntered = localStorage.getItem('hasEntered')
+        const savedStatus = localStorage.getItem('status')
+
+        if (savedAttendanceData){
+            setAttendanceData(JSON.parse(savedAttendanceData))
+        }
+        if (savedHasEntered !== null){
+            setHasEntered(JSON.parse(savedHasEntered))
+        }
+        if (savedStatus){
+            setStatus(savedStatus)
+        }
+    }, []);
+
+    useEffect(() => {
+        localStorage.setItem('attendanceData', JSON.stringify(attendanceData))
+        localStorage.setItem('hasEntered', JSON.stringify(hasEntered))
+        localStorage.setItem('status', status)
+    }, [attendanceData,hasEntered,status]);
 
     const handleCalculateTotal = () => {
         let totalWorkedMinutes = 0;
@@ -89,6 +112,7 @@ export const PresentationSection = () => {
                     if (withinGeofence) {
                         handleAttendance('entry');
                         setStatus('Entrada registrada correctamente.');
+                        setHasEntered(true)
                     } else {
                         setStatus('Fuera del rango. No se puede registrar la entrada.');
                     }
@@ -108,7 +132,7 @@ export const PresentationSection = () => {
         const dayIndex = new Date().getDay();
 
         if (type==='entry'){
-            setEntryTime(Date.now());
+            setEntryTime(currentHour);
         }
         setAttendanceData((prevData) => {
             const newEntries = type === 'entry' ? [...prevData.entries] : prevData.entries;
@@ -134,6 +158,7 @@ export const PresentationSection = () => {
         handleGetLocation();
         if (isInGeofence){
             handleAttendance('entry');
+            setHasEntered(true);
         }else{
             setStatus('Fuera de rango,')
         }
@@ -144,26 +169,37 @@ export const PresentationSection = () => {
         setStatus('Salida')
         setUserLocation(null)
         setIsInGeofence(false)
+        setHasEntered(false)
 
-        if (intervalId){
-            clearInterval(intervalId);
-            setIntervalId(null);
-            setTime(0)
-        }
+        // if (intervalId){
+        //     clearInterval(intervalId);
+        //     setIntervalId(null);
+        //     setTime(0)
+        // }
 
         const currentExitTime = Date.now();
-        const timeSpent = Math.floor((currentExitTime-entryTime)/1000)
-        const formattedTimeSpent = FormatTime(timeSpent)
         const dayIndex  = new Date().getDay();
-        setAttendanceData(prevData =>{
-            const newTotals = [...prevData.totals];
-            newTotals[dayIndex] = formattedTimeSpent;
+        const savedEntryTime = localStorage.getItem(`entryTime_${dayIndex}`);
+        const entryTime = savedEntryTime ? parseInt(savedEntryTime, 10) : null;
 
-            return{
-                ...prevData,
-                totals: newTotals,
-            }
-        })
+        if (entryTime) {
+            const timeSpent = Math.floor((currentExitTime - entryTime) / 1000); // Calcular el tiempo en segundos
+            const formattedTimeSpent = FormatTime(timeSpent);
+
+            setAttendanceData(prevData => {
+                const newTotals = [...prevData.totals];
+                newTotals[dayIndex] = formattedTimeSpent;
+
+                return {
+                    ...prevData,
+                    totals: newTotals,
+                };
+            });
+        }
+
+        // Limpiar localStorage para la entrada actual
+        localStorage.removeItem(`entryTime_${dayIndex}`);
+        localStorage.removeItem(`exitTime_${dayIndex}`);
         //REGRESAR EL TIEMPO A 0
         setTimeout(() => {
             setStatus('');
@@ -237,24 +273,22 @@ export const PresentationSection = () => {
         <Container>
                 <center>
                     <ButtonGroup>
-                    <ButtonAssist aria-label="Marcar Asistencia" onClick={handleButtonClick}>
+                    <ButtonAssist aria-label="Marcar Asistencia" onClick={handleButtonClick} disabled={hasEntered}>
                         Marcar Asistencia
                     </ButtonAssist>
                     <StatusMessage><p>{status}</p></StatusMessage>
-                    <ButtonExit aria-label="Marcar Salida" onClick={handleExitAttendance}>
+                    <ButtonExit aria-label="Marcar Salida" onClick={handleExitAttendance} disabled = {!hasEntered}>
                         Marcar Salida
                     </ButtonExit>
                     </ButtonGroup>
                     {/*{isInGeofence && <Timer>{FormatTime(time)}</Timer>}*/}
                 </center>
             <Map isLoaded = {isLoaded} userLocation = {userLocation}/>
-
             <ButtonGroupLunch>
                 <h2>Pediste Almuerzo?</h2>
                 <ButtonYes onClick={handleButtonYes}>Si</ButtonYes>
                 <ButtonNo onClick={handleButtonNo}>No</ButtonNo>
             </ButtonGroupLunch>
-
             <Table attendanceData={attendanceData} onCalculateTotal={handleCalculateTotal}/>
         </Container>
     );
@@ -262,8 +296,12 @@ export const PresentationSection = () => {
 
 const Container = styled.div`
     max-width: 80%;
-    margin-left: 10%;
-    margin-right: 10%;
+    margin: 0 auto; 
+    padding: 1em;
+    @media (max-width: 768px) {
+        max-width: 100%; 
+        padding: 0.5em;
+    }
 `;
 
 const ButtonGroup = styled.div`
@@ -303,15 +341,15 @@ const ButtonExit = styled.button`
         color: rgba(64,150,255,1);
     }
 `;
-const Timer = styled.div`
-    max-width: 10%;
-    width: 100%;
-    border: 0.2em solid white;
-    background-color: black;
-    margin: 1em;
-    font-size: 1.5em;
-    color: white;
-`;
+// const Timer = styled.div`
+//     max-width: 10%;
+//     width: 100%;
+//     border: 0.2em solid white;
+//     background-color: black;
+//     margin: 1em;
+//     font-size: 1.5em;
+//     color: white;
+// `;
 const StatusMessage = styled.button`
     
     width: 16.5%;
@@ -324,7 +362,7 @@ const StatusMessage = styled.button`
     p{
         font-size: 1.4em;
         font-weight: bold;
-        font-family: "Bell MT";
+        font-family: "Bell MT",serif;
     }
 
 `;
@@ -333,8 +371,11 @@ const ButtonGroupLunch = styled.div`
     color: gray;
     border-radius: 1em;
     margin: 2em auto;
-    display: block;
-    width: 35%;
+    display: flex; // Cambiar a flexbox
+    flex-direction: column; // Alinear en columna
+    align-items: center; // Centrar horizontalmente
+    width: 80%; // Ajustar ancho
+    max-width: 400px; // Limitar ancho máximo
     height: auto;
     border: 0.3em solid gray;
     background-color: white;
@@ -344,37 +385,53 @@ const ButtonGroupLunch = styled.div`
         font-family:apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";;
         font-size: 2.2em;
     }
+    @media (max-width: 768px) {
+        width: 90%; 
+        h2 {
+            font-size: 1.8em; 
+        }
+    }
 `;
 const ButtonYes = styled.button`
     font-size: 1.3em;
     margin: 1em;
-    width: 38%;
+    width: 80%;
     height: 5em;
     border: none;
     border-radius: 1em;
     background-color: rgba(64,150,255,1);
     color: white;
 
-    &:hover{
+    &:hover {
         background-color: white;
         color: rgba(64,150,255,1);
         border: 1px solid rgba(64,150,255,1);
     }
+
+    @media (max-width: 768px) {
+        font-size: 1.2em; // Reducir tamaño en móviles
+        height: 4em; // Ajustar altura
+    }
 `;
+
 const ButtonNo = styled.button`
     font-size: 1.3em;
     margin: 1em;
-    width: 38%;
+    width: 80%; // Hacer más ancho para móviles
     height: 5em;
     border: none;
     border-radius: 1em;
     background-color: rgba(64,150,255,1);
     color: white;
 
-    &:hover{
+    &:hover {
         background-color: white;
         color: rgba(64,150,255,1);
         border: 1px solid rgba(64,150,255,1);
     }
-}
+
+    @media (max-width: 768px) {
+        font-size: 1.2em; // Reducir tamaño en móviles
+        height: 4em; // Ajustar altura
+    }
 `;

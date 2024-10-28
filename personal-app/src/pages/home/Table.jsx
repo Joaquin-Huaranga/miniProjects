@@ -2,7 +2,6 @@ import React from 'react';
 import styled from "styled-components";
 
 export const Table = ({attendanceData,onCalculateTotal}) => {
-
     return (
         <Container>
             <h1>Control de asistencia</h1>
@@ -87,7 +86,6 @@ const Container = styled.div`
         color: gray;
     }
 `;
-
 const TableContainer = styled.table`
     color: white;
     max-width: 90%;
@@ -119,6 +117,11 @@ const TableContainer = styled.table`
         color: black;
         border: none;
         background-color: white;
+    }
+    @media (max-width: 768px) {
+        th, td {
+            font-size: 0.9em; 
+        }
     }
     
 `;
