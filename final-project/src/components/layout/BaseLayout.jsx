@@ -17,5 +17,5 @@ const Container = styled.div`
 .main{
     
 }
-    background-color: darkslategray;
+    background-color: #212529;
 `;

@@ -6,10 +6,13 @@ export const HeaderLayout = () => {
         <Container>
             <NavContainer>
                 <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Random1</a></li>
-                    <li><a href="#">Random2</a></li>
-                    <li><a href="#">Random3</a></li>
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#">Desarrollo Web</a></li>
+                    <li><a href="#">Aplicaciones</a></li>
+                    <li><a href="#">Sistemas</a></li>
+                    <li><a href="#">Facturacion Electrnica</a></li>
+                    <li><a href="#">Marketing Digital</a></li>
+                    <li><a href="#">Contacto</a></li>
                 </ul>
             </NavContainer>
         </Container>
@@ -18,7 +21,7 @@ export const HeaderLayout = () => {
 
 const Container = styled.div`
     height: 5em;
-    background-color: black;
+    background-color: #343a40;
     text-align: center;
     align-content: center;
     color: darkslateblue;
@@ -27,11 +30,12 @@ const Container = styled.div`
 const NavContainer = styled.nav`
     color: white;
     ul{
-        justify-content: space-between;
         display: flex;
         list-style: none;
+        justify-content: space-around;
         li{
             a{
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";;
                 color: white;
                 text-decoration: none;
             }

@@ -1,35 +1,20 @@
 import React from 'react';
 import styled from "styled-components";
-import {video} from "../../../public/video/index.js";
+import {FormContainer} from "./FormContainer.jsx";
 
 export const PresentationSection = () => {
 
     return (
         <Container>
-            <div className="video-wrapper">
-                <video
-                    className="video"
-                    poster={"nop"}
-                    autoPlay
-                    loop
-                    muted
-                    controls={false}
-                >
-                    <source src={video}/>
-                </video>
-            </div>
+            <FormContainer/>
         </Container>
     );
 };
 
 const Container = styled.div`
-    .video-wrapper {
-        width: 100vw;
-        height: 100vh;
-
-        .video {
-            width: 100%;
-            height: 100%;
-        }
-    }
+    background-color: #212529;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";;
+    width: 100%;
+    height: 100vh;
+    align-content: center;
 `;
