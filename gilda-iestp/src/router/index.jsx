@@ -15,7 +15,7 @@ export const Router = () => {
           </BaseLayout>
         }
       />
-      <Route exact path="*" element={<h1>ERROR</h1>} />
+      <Route exact path="*" element={<h1>Pablo, Mayte y Gabriela</h1>} />
     </Routes>
   );
 };
