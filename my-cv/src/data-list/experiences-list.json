@@ -1,0 +1,73 @@
+[
+  {
+    "role": "Desarrollador Web Junior",
+    "company": "Agencia Servitec - Landing Page para empresa CSGA",
+    "period": "Mayo 2025 - Mayo 2025",
+    "technologies": ["Astro", "Tailwind", "JavaScript"],
+    "description":
+    "Diseñé y desarrollé una Landing page para empresa CSGA utilizando Astro, Tailwind y JavaScript para presentar mis habilidades, proyectos y experiencia. Implementé funcionalidades responsivas, animaciones y formularios conectados a Firebase mediante el uso de una API."
+  },
+  {
+    "role": "Desarrollador Web Junior",
+    "company": "Agencia Servitec - Desarrollo de modulo de Visitas para Aplicacion Web Korekenke",
+    "period": "Mayo 2024 - Mayo 2025",
+    "technologies": ["React", "Nodejs", "JavaScript","CSS", "HTML", "Firebase"],
+    "description":"Desarrolle un modulo de Visitas o de Acceso, que permite facilitar el registro y gestion de visitas del ejercito"
+  },
+  {
+    "role": "Desarrollador Web Junior",
+    "company": "Agencia Servitec - Landing Page para una firma de abogados",
+    "period": "Mayo 2025 - Mayo 2025",
+    "technologies": ["Astro", "Tailwind", "JavaScript"],
+    "description":
+    "Participe en el diseño y desarrollo de una Landing page para una firma de abogados utilizando Astro, Tailwind y JavaScript, priorizamos un estilo serio pero llamativo."
+  },{
+    "role": "Desarrollador de Software de Escritorio",
+    "company": "Agencia Servitec - Aplicacion de Asistencias con huella digital",
+    "period": "Abril 2025 - Abril 2025",
+    "technologies": ["C#", "Windows Forms App (.NET 8.0)", "firebase", "NodeJs", "U.are.U SDK para Digital Persona 4500"],
+    "description": "Desarrollé una aplicación de escritorio portable para el control de asistencias mediante reconocimiento de huellas digitales. Utilicé el SDK U.are.U para integrar el lector biométrico Digital Persona 4500, programando la lógica en C#. Implementé la interfaz con Windows Forms y conecté la aplicación a una API desarrollada en Node.js, la cual servía como intermediaria para guardar las plantillas biométricas y los registros de asistencia en Firebase."
+  },
+  {
+    "role": "Desarrollador Web Junior",
+    "company": "Agencia Servitec - Pagina Web para Circulo Militar de Supervisores Tecnicos y Suboficiales",
+    "period": "Abril 2025 - Abril 2025",
+    "technologies": ["Astro", "Tailwind", "JavaScript", "Wordpress Headless"],
+    "description":
+    "Creé una pagina web profesional y responsiva para el Circulo Militar de Supervisores Tecnicos y Suboficiales en Chorrillos. Usé Wordpress headless donde este funciono como un backend para administrar el contenido de la pagina web y use astro, javascript y tailwind para el diseño y funcionalidades."
+  },
+  {
+  "role": "Desarrollador Web Junior",
+  "company": "Agencia Servitec - Desarrollo de modulo de Elecciones para Aplicacion Web Korekenke",
+  "period": "Marzo 2024 - Marzo 2025",
+  "technologies": ["React", "Nodejs", "JavaScript","CSS", "HTML", "Firebase"],
+  "description":"Desarrolle un modulo de Elecciones que permite crear una eleccion, agregar candidatos, elegir a los votantes y tambien ver las estadisticas en tiempo real de la eleccion."
+  },{
+  "role": "Desarrollador Web Junior",
+  "company": "Agencia Servitec - Desarrollo de modulo de Elecciones para Aplicacion Web Korekenke",
+  "period": "Diciembre 2024 - Enero 2025",
+  "technologies": ["React", "Nodejs", "JavaScript","CSS", "HTML", "Firebase"],
+  "description":"Desarrolle un modulo de Elecciones que permite crear una eleccion, agregar candidatos, elegir a los votantes y tambien ver las estadisticas en tiempo real de la eleccion."
+  },
+  {
+  "role": "Desarrollador Web Junior",
+  "company": "Agencia Servitec - Desarrollo de modulo de Asistencias con Geolocalizacion y Reconocimiento Facial para Aplicacion Web Korekenke",
+  "period": "Diciembre 2024 - Enero 2025",
+  "technologies": ["React", "Nodejs", "JavaScript","CSS", "HTML", "Firebase"],
+  "description":"Desarrolle un modulo de Asistencias con geolocalizacion y reconocimiento facial, donde el usuario puede marcar su asistencia mediante la aplicacion web si se encuentra dentro de su lugar de trabajo y su rostro es el mismo que el que tenga registrada su cuenta."
+  },
+  {
+  "role": "Desarrollador Web Junior",
+  "company": "Agencia Servitec - Desarrollo de modulo de Agenda para Aplicacion Web Korekenke",
+  "period": "Noviembre 2024 - Noviembre 2024",
+  "technologies": ["React", "Nodejs", "JavaScript","CSS", "HTML", "Firebase"],
+  "description":"Desarrolle un modulo de Agenda, donde el usuario puede crear un fecha donde tenga que hacer alguna tarea o tambien un evento, utilizando firebase para guardar cada actividad que se cree."
+  },
+  {
+  "role": "Desarrollador Frontend",
+  "company": "Agencia Servitec - Frontend para Modulo de Solicitud de Vacaciones de Apliacion Web Korenkenke",
+  "period": "Octubre 2024 - Octubre 2024",
+  "technologies": ["React", "Nodejs", "JavaScript","CSS", "HTML"],
+  "description":"Participe en el desarrollo del frontend de un modulo de Solicitud de Vacaciones, especificamente en el enlistado de cada una de las solicitudes."
+  }
+]

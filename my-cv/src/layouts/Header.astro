@@ -1,0 +1,81 @@
+---
+import ContentWidth from "../components/ContentWidth.astro";
+import { Icon } from "astro-icon/components";
+
+const navItems = [
+    { text: "Inicio", route: "#" },
+    { text: "Sobre mi", route: "#about" },
+    { text: "Experiencia", route: "#experience" },
+    { text: "Estudios", route: "#studies" },
+    { text: "Proyectos", route: "#projects" },
+];
+---
+
+<header class="sticky top-0 z-50 bg-blue-100 backdrop-blur-sm shadow-xl border-gray-100">
+    <ContentWidth>
+        <div class="flex justify-between items-center py-3 lg:py-4">
+            <div>
+                <h1 class="text-xl md:text-2xl font-bold">Joaquin Huaranga</h1>
+                <p class="text-gray-700">Jr. Web Developer</p>
+            </div>
+            <nav class="hidden md:flex">
+                <ul class="flex gap-1 lg:gap-2 font-medium">
+                    {
+                        navItems.map((nav) => (
+                                <li class="relative group" >
+                                    <a
+                                            href={nav.route}
+                                            class="inline-block px-4 py-3 text-gray-700 hover:text-blue-500 transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 rounded-lg"
+                                    >
+                                        {nav.text}
+                                        <span class="absolute bottom-1 left-1/2 transform -translate-x-1/2 h-0.5 w-6 bg-blue-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center"></span>
+                                    </a>
+                                </li>
+                        ))
+                    }
+                </ul>
+            </nav>
+            <button
+                    id="menu-toggle"
+                    class="md:hidden p-2 rounded-lg text-blue-500 focus:outline-none"
+                    aria-label="Abrir menú"
+            >
+                <Icon name="mdi:menu" size={32} />
+            </button>
+        </div>
+        <div
+                id="mobile-menu"
+                class="md:hidden overflow-hidden transition-all duration-300 max-h-0 opacity-0 text-center"
+        >
+            {
+                navItems.map((nav) => (
+                        <div class="h-[0.1em] w-full bg-gray-200"/>
+                        <a
+                                href={nav.route}
+                                class="block px-4 py-3 text-gray-700 hover:text-blue-500 font-medium transition-colors"
+                        >
+                            {nav.text}
+                        </a>
+                ))
+            }
+        </div>
+    </ContentWidth>
+</header>
+
+<script is:inline>
+    const toggleBtn = document.querySelector("#menu-toggle");
+    const mobileMenu = document.querySelector("#mobile-menu");
+
+    let isOpen = false;
+
+    toggleBtn?.addEventListener("click", () => {
+        isOpen = !isOpen;
+        if (isOpen) {
+            mobileMenu.classList.remove("max-h-0", "opacity-0");
+            mobileMenu.classList.add("max-h-96", "opacity-100");
+        } else {
+            mobileMenu.classList.remove("max-h-96", "opacity-100");
+            mobileMenu.classList.add("max-h-0", "opacity-0");
+        }
+    });
+</script>

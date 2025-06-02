@@ -21,238 +21,129 @@ import {
 
 export const HeaderLayout = () => {
   return (
-    <div>
-      <Alert
-        type="warning"
-        message="Seguimos adelante, rumbo al LICENCIAMIENTO.- Encuesta MINEDU"
-        link="https://docs.google.com/forms/d/e/1FAIpQLSfsAUv-YfmI1LMIqLYM9sHgwNE-9OT90jECuehPBPevB8Wzvg/viewform"
-      />
-      <div className="md:flex justify-around items-center">
-        <img src="/logo_gilda.jpg" alt="" className="w-[30em]" />
-        <div className="flex gap-5 justify-center py-2 ">
-          <a
-            className="flex gap-2"
-            href="https://mail.google.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FontAwesomeIcon
-              icon={faEnvelope}
-              className="text-black w-4 h-4 mt-1"
-            />
-            <p>Correo Insitucion</p>
-          </a>
-          <a
-            className="flex gap-2"
-            href="https://virtual.iestpgildaballivian.edu.pe/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FontAwesomeIcon
-              icon={faLaptop}
-              className="text-black w-4 h-4 mt-1"
-            />
-            <p>Aula Virtual</p>
-          </a>
+      <div>
+        <Alert
+            type="warning"
+            message="Seguimos adelante, rumbo al LICENCIAMIENTO.- Encuesta MINEDU"
+            link="https://docs.google.com/forms/d/e/1FAIpQLSfsAUv-YfmI1LMIqLYM9sHgwNE-9OT90jECuehPBPevB8Wzvg/viewform"
+        />
+
+        <div className="py-4 shadow-sm">
+          <div className="max-w-screen-xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
+            <img src="/logo_gilda.jpg" alt="Logo Gilda" className="w-[15em] md:w-[20em] " />
+
+            <div className="flex flex-wrap gap-4 items-center justify-center">
+              <a
+                  className="flex gap-2 items-center text-sm text-gray-800 hover:text-blue-600 transition"
+                  href="https://mail.google.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+              >
+                <FontAwesomeIcon icon={faEnvelope} className="w-4 h-4" />
+                Correo Institución
+              </a>
+              <a
+                  className="flex gap-2 items-center text-sm text-gray-800 hover:text-blue-600 transition"
+                  href="https://virtual.iestpgildaballivian.edu.pe/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+              >
+                <FontAwesomeIcon icon={faLaptop} className="w-4 h-4" />
+                Aula Virtual
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div className="bg-gray-200 backdrop-blur-md sticky top-0 shadow-md z-50 py-4">
+          <nav className="overflow-x-auto">
+            <ul className="flex flex-wrap justify-center gap-4 px-4 max-w-screen-xl mx-auto">
+              <NavDropdown
+                  icon={faPeopleGroup}
+                  label="Nosotros"
+                  items={[
+                    { label: 'Informacion', href: '/info' },
+                    { label: 'Mision y Vision', href: '/mission-vision' },
+                    { label: 'Historia', href: '/history' },
+                    { label: 'Documentos de Gestion', href: '/management-documents' },
+                    { label: 'Contactanos', href: '/contact' },
+                    { label: 'Plana Docente', href: '/teacher-plan' },
+                    { label: 'Eventos', href: '/events' },
+                    { label: 'El Director', href: '/director' },
+                  ]}
+              />
+              <NavDropdown
+                  icon={faGraduationCap}
+                  label="Programas de Estudios"
+                  items={[
+                    { label: 'Gestion Administrativa', href: '/administration' },
+                    { label: 'Desarrollo de Sistemas de Informacion', href: '/computing' },
+                    { label: 'Electronica Industrial', href: '/electronics' },
+                    { label: 'Mecanica de Produccion Industrial', href: '/production-mechanics' },
+                    { label: 'Contabilidad', href: '/accounting' },
+                    { label: 'Construccion Civil', href: '/civil-construction' },
+                    { label: 'Electricidad Industrial', href: '/industrial-electricity' },
+                    { label: 'Mecatronica Automotriz', href: '/automotive-mechatronics' },
+                  ]}
+              />
+              <NavDropdown
+                  icon={faClipboardCheck}
+                  label="Trámites"
+                  items={[
+                    { label: 'TUPA', href: '#' },
+                    { label: 'Mesa de Partes', href: '#' },
+                  ]}
+              />
+              <NavButton href="/news" icon={faComments} label="Comunicados Secretaria" />
+              <NavButton href="/results" icon={faBook} label="RESULTADOS Admision 2025" variant="destructive" />
+              <NavButton href="/investigation" icon={faBook} label="Investigación" />
+              <NavButton href="https://centroderecursosies.drelm.gob.pe/" icon={faBook} label="Biblioteca Digital" variant="destructive" />
+              <NavButton href="https://iestpgildaballivian.jedu.pe/" icon={faPeopleGroup} label="Intranet Jaguar Soft" variant="success" />
+            </ul>
+          </nav>
         </div>
       </div>
+  );
+};
 
-      <div className="bg-gray-200 py-5">
-        <nav>
-          <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:flex xl:justify-center gap-3 xl:gap-12 px-4 max-w-screen-xl mx-auto">
-            <li className="w-full">
-              <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <Button variant="outline" className="w-full justify-between">
-                    <FontAwesomeIcon
-                      icon={faPeopleGroup}
-                      className="text-black w-4 h-4 mt-1"
-                    />
-                    Nosotros
-                    <FontAwesomeIcon
-                      icon={faAngleDown}
-                      className="text-black w-4 h-4 mt-1"
-                    />
-                  </Button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent className="w-56">
-                  <a href="/info">
-                    <DropdownMenuItem>Informacion</DropdownMenuItem>
-                  </a>
-                  <a href="/mission-vision">
-                    <DropdownMenuItem>Mision y Vision</DropdownMenuItem>
-                  </a>
-                  <a href="/history">
-                    <DropdownMenuItem>Historia</DropdownMenuItem>
-                  </a>
-                  <a href="/management-documents">
-                    <DropdownMenuItem>Documentos de Gestion</DropdownMenuItem>
-                  </a>
-                  <a href="/contact">
-                    <DropdownMenuItem>Contactanos</DropdownMenuItem>
-                  </a>
-                  <a href="/teacher-plan">
-                    <DropdownMenuItem>Plana Docente</DropdownMenuItem>
-                  </a>
-                  <a href="/events">
-                    <DropdownMenuItem>Eventos</DropdownMenuItem>
-                  </a>
-                  <a href="/director">
-                    <DropdownMenuItem>El Director</DropdownMenuItem>
-                  </a>
-                </DropdownMenuContent>
-              </DropdownMenu>
-            </li>
+const NavDropdown = ({ icon, label, items }) => (
+    <li className="min-w-[200px]">
+      <DropdownMenu>
+        <DropdownMenuTrigger asChild>
+          <Button variant="outline" className="w-full justify-between rounded-lg shadow-sm">
+            <FontAwesomeIcon icon={icon} className="w-4 h-4" />
+            {label}
+            <FontAwesomeIcon icon={faAngleDown} className="w-4 h-4" />
+          </Button>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent className="w-56 shadow-md rounded-md">
+          {items.map((item, i) => (
+              <a key={i} href={item.href}>
+                <DropdownMenuItem>{item.label}</DropdownMenuItem>
+              </a>
+          ))}
+        </DropdownMenuContent>
+      </DropdownMenu>
+    </li>
+);
 
-            <li className="w-full">
-              <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <Button variant="outline" className="w-full justify-between">
-                    <FontAwesomeIcon
-                      icon={faGraduationCap}
-                      className="text-black w-4 h-4 mt-1"
-                    />
-                    Programas de Estudios
-                    <FontAwesomeIcon
-                      icon={faAngleDown}
-                      className="text-black w-4 h-4 mt-1"
-                    />
-                  </Button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent className="w-56">
-                  <a href="/administration">
-                    <DropdownMenuItem>Gestion Administrativa</DropdownMenuItem>
-                  </a>
-                  <a href="/computing">
-                    <DropdownMenuItem>
-                      Desarrollo de Sistemas de Informacion
-                    </DropdownMenuItem>
-                  </a>
-                  <a href="/electronics">
-                    <DropdownMenuItem>Electronica Industrial</DropdownMenuItem>
-                  </a>
-                  <a href="/production-mechanics">
-                    <DropdownMenuItem>
-                      Mecanica de Produccion Industrial
-                    </DropdownMenuItem>
-                  </a>
-                  <a href="/accounting">
-                    <DropdownMenuItem>Contabilidad</DropdownMenuItem>
-                  </a>
-                  <a href="/civil-construction">
-                    <DropdownMenuItem>Construccion Civil</DropdownMenuItem>
-                  </a>
-                  <a href="/industrial-electricity">
-                    <DropdownMenuItem>Electricidad Industrial</DropdownMenuItem>
-                  </a>
-                  <a href="/automotive-mechatronics">
-                    <DropdownMenuItem>Mecatronica Automotriz</DropdownMenuItem>
-                  </a>
-                </DropdownMenuContent>
-              </DropdownMenu>
-            </li>
+const NavButton = ({ href, icon, label, variant = 'outline' }) => {
+  const baseClass =
+      variant === 'destructive'
+          ? 'bg-red-500 text-white hover:bg-red-400'
+          : variant === 'success'
+              ? 'bg-green-500 text-white hover:bg-green-400'
+              : 'bg-white text-gray-800 hover:bg-gray-100';
 
-            <li className="w-full">
-              <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <Button variant="outline" className="w-full justify-between">
-                    <FontAwesomeIcon
-                      icon={faClipboardCheck}
-                      className="text-black w-4 h-4 mt-1"
-                    />
-                    Tramites
-                    <FontAwesomeIcon
-                      icon={faAngleDown}
-                      className="text-black w-4 h-4 mt-1"
-                    />
-                  </Button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent className="w-56">
-                  <a href="#">
-                    <DropdownMenuItem>TUPA</DropdownMenuItem>
-                  </a>
-                  <a href="#">
-                    <DropdownMenuItem>Mesa de Partes</DropdownMenuItem>
-                  </a>
-                </DropdownMenuContent>
-              </DropdownMenu>
-            </li>
-
-            <li className="w-full">
-              <Button
-                variant="outline"
-                onClick={() => window.open('/news')}
-                className="w-full justify-start"
-              >
-                <FontAwesomeIcon
-                  icon={faComments}
-                  className="text-black w-4 h-4 mt-1"
-                />
-                Comunicados Secretaria Academica
-              </Button>
-            </li>
-
-            <li className="w-full">
-              <Button
-                variant="destructive"
-                onClick={() => window.open('/results')}
-                className="w-full hover:bg-red-400"
-              >
-                <FontAwesomeIcon
-                  icon={faBook}
-                  className="text-white w-4 h-4 mt-1"
-                />
-                RESULTADOS Admision 2025
-              </Button>
-            </li>
-
-            <li className="w-full">
-              <Button
-                variant="outline"
-                onClick={() => window.open('/investigation')}
-                className="w-full"
-              >
-                <FontAwesomeIcon
-                  icon={faBook}
-                  className="text-black w-4 h-4 mt-1"
-                />
-                Investigacion
-              </Button>
-            </li>
-
-            <li className="w-full">
-              <Button
-                variant="destructive"
-                onClick={() =>
-                  window.open('https://centroderecursosies.drelm.gob.pe/')
-                }
-                className="w-full hover:bg-red-400"
-              >
-                <FontAwesomeIcon
-                  icon={faBook}
-                  className="text-white w-4 h-4 mt-1"
-                />
-                Biblioteca Digital
-              </Button>
-            </li>
-
-            <li className="w-full">
-              <Button
-                onClick={() =>
-                  window.open('https://iestpgildaballivian.jedu.pe/')
-                }
-                className="w-full bg-green-500 text-white shadow-xs hover:bg-green-400"
-              >
-                <FontAwesomeIcon
-                  icon={faPeopleGroup}
-                  className="text-white w-4 h-4 mt-1"
-                />
-                Intranet Jaguar Soft
-              </Button>
-            </li>
-          </ul>
-        </nav>
-      </div>
-    </div>
+  return (
+      <li className="min-w-[200px]">
+        <Button
+            onClick={() => window.open(href, '_blank')}
+            className={`w-full justify-center rounded-lg shadow-sm transition ${baseClass}`}
+        >
+          <FontAwesomeIcon icon={icon} className="w-4 h-4 mr-2" />
+          {label}
+        </Button>
+      </li>
   );
 };

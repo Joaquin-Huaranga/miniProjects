@@ -1,0 +1,1 @@
+export {default as experiencesList} from './experiences-list.json'
