@@ -1,0 +1,52 @@
+---
+import ContentWidth from "./ContentWidth.astro";
+
+const projects = [
+    {
+        title: "Portafolio Personal",
+        image: "/image/portafolio-preview.jpg",
+        description: "Diseñado y desarrollado con Astro y React, implementando diseño responsivo y buenas prácticas de desarrollo frontend.",
+        tech: ["Astro", "React", "Tailwind CSS"],
+        link: "https://tuportafolio.com"
+    },
+    {
+        title: "Landing Page para Restaurante",
+        image: "/image/restaurante-preview.jpg",
+        description: "Landing page moderna para un restaurante usando HTML, CSS y Tailwind. Optimizada para móviles.",
+        tech: ["HTML", "CSS", "Tailwind CSS"],
+        link: "https://ajispa-demo.com"
+    },
+    {
+        title: "Gestor de Tareas",
+        image: "/image/task-manager-preview.jpg",
+        description: "Aplicación para gestionar tareas diarias con autenticación, guardado en Firebase y UI hecha con React.",
+        tech: ["React", "Firebase"],
+        link: "#"
+    }
+];
+---
+
+<section id="projects" class="bg-white py-20">
+    <ContentWidth>
+        <h2 class="text-4xl font-extrabold text-blue-700 mb-12 text-center">💼 Mis Proyectos</h2>
+        <div class="grid gap-10 md:grid-cols-2 lg:grid-cols-3 px-6">
+            {projects.map((project) => (
+                    <div class="bg-gray-50 rounded-xl overflow-hidden shadow hover:shadow-lg transition">
+                        <img src={project.image} alt={`Imagen de ${project.title}`} class="w-full h-48 object-cover" />
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold text-blue-800 mb-2">{project.title}</h3>
+                            <p class="text-gray-700 text-sm mb-4">{project.description}</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                {project.tech.map((tech) => (
+                                        <span class="bg-blue-100 text-blue-700 text-xs px-3 py-1 rounded-full">{tech}</span>
+                                ))}
+                            </div>
+                            <a href={project.link} target="_blank" rel="noopener noreferrer" class="inline-block px-4 py-2 bg-blue-600 text-white text-sm rounded-lg hover:bg-blue-700 transition">
+                                Ver Proyecto
+                            </a>
+                        </div>
+                    </div>
+            ))}
+        </div>
+    </ContentWidth>
+</section>
