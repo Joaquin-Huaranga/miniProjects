@@ -11,7 +11,7 @@ const navItems = [
 ];
 ---
 
-<header class="sticky top-0 z-50 bg-blue-100 backdrop-blur-sm shadow-xl border-gray-100">
+<header class="sticky top-0 z-50 bg-blue-100 backdrop-blur-sm shadow-xl border-gray-100 transition ease-out duration-400" id="navbar">
     <ContentWidth>
         <div class="flex justify-between items-center py-3 lg:py-4">
             <div>
@@ -77,5 +77,19 @@ const navItems = [
             mobileMenu.classList.remove("max-h-96", "opacity-100");
             mobileMenu.classList.add("max-h-0", "opacity-0");
         }
+    });
+
+    const navbar = document.getElementById("navbar");
+
+
+    let lastScroll = 0;
+    window.addEventListener("scroll", () => {
+        const currentScroll = window.scrollY;
+        if (currentScroll > lastScroll && currentScroll > 50) {
+            navbar.classList.add("-translate-y-full");
+        } else {
+            navbar.classList.remove("-translate-y-full");
+        }
+        lastScroll = currentScroll;
     });
 </script>

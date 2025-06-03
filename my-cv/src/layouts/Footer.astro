@@ -1,12 +1,45 @@
 ---
-import {Icon} from "astro-icon/components"
+import { Icon } from "astro-icon/components";
 ---
 
-<footer>
-    <div class="bg-gray-800 p-8">
-
+<footer class="text-white">
+    <div class="bg-gray-800 px-8 py-12">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+            <div>
+                <h3 class="text-2xl font-bold text-white mb-2">Joaquin H.</h3>
+                <p class="text-gray-400 text-sm">
+                    Desarrollador web junior apasionado por construir interfaces limpias y funcionales. En constante aprendizaje.
+                </p>
+            </div>
+            <div>
+                <h4 class="text-lg font-semibold mb-3 text-white">Navegación</h4>
+                <ul class="space-y-2 text-gray-400 text-sm">
+                    <li><a href="#about" class="hover:text-white transition">Sobre mí</a></li>
+                    <li><a href="#projects" class="hover:text-white transition">Proyectos</a></li>
+                    <li><a href="#studies" class="hover:text-white transition">Estudios</a></li>
+                    <li><a href="#contact" class="hover:text-white transition">Contacto</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-lg font-semibold mb-3 text-white">Redes Sociales</h4>
+                <div class="flex gap-4 text-gray-400">
+                    <a href="https://github.com/Joaquin-Huaranga" target="_blank" aria-label="GitHub" class="hover:text-white transition">
+                        <Icon name="mdi:github" size={24} />
+                    </a>
+                    <a href="https://www.linkedin.com/in/joaquín-alexandro-huaranga-orihuela-842085250/" target="_blank" aria-label="LinkedIn" class="hover:text-white transition">
+                        <Icon name="mdi:linkedin" size={24} />
+                    </a>
+                    <a href="mailto:joaquinhuarangaorihuela@gmail.com" aria-label="Email" class="hover:text-white transition">
+                        <Icon name="mdi:email-outline" size={24} />
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="bg-gray-900 px-8 py-4 text-gray-400 text-sm justify-items-center items-center">
-        <p class="flex gap-2">Derechos Reservados - Diseñado con <Icon name="mdi:heart" size={18}/> por Joaquin</p>
+    <div class="bg-gray-900 text-center px-8 py-4 text-gray-400 text-sm">
+        <p class="flex justify-center items-center gap-2">
+            © {new Date().getFullYear()} Derechos Reservados - Diseñado con
+            <Icon name="mdi:heart" size={18} class="text-red-500" /> por Joaquin
+        </p>
     </div>
 </footer>
