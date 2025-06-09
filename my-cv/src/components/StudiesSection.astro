@@ -12,35 +12,39 @@ const studies = [
         degree: "Carrera Tecnica - Desarrollo de Software",
         institution: "Senati",
         period: "2019 - 2020",
-        description: "Aprendizaje de programacion basico y programacion orientada a objetos utlizando el lenguaje Python"
+        description:
+            "Aprendizaje de programacion basico y programacion orientada a objetos utlizando el lenguaje Python"
     },
     {
         degree: "Carrera Técnica - Computacion e Informatica",
         institution: "IESTP Gilda Liliana Ballivian Rosado",
         period: "2023 – En curso",
-        description: "Aprendizaje de fundamentos de programación, estructuras de datos, desarrollo web y bases de datos. Uso de lenguajes como html, JavaScript, CSS y Python."
+        description:
+            "Aprendizaje de fundamentos de programación, estructuras de datos, desarrollo web y bases de datos. Uso de lenguajes como html, JavaScript, CSS y Python."
     },
     {
         degree: "Curso de React.js",
         institution: "Udemy",
         period: "2024",
-        description: "Curso práctico enfocado en hooks, componentes funcionales y consumo de APIs con React."
+        description:
+            "Curso práctico enfocado en hooks, componentes funcionales y consumo de APIs con React."
     }
 ];
 ---
 
-<section id="studies" class="bg-blue-50 py-20">
+<section id="studies" class="bg-gray-900 py-20">
     <ContentWidth>
-        <h2 class="text-4xl font-extrabold text-blue-700 mb-12 text-center">🎓 Estudios</h2>
+        <h2 class="text-4xl font-extrabold text-blue-400 mb-12 text-center">🎓 Estudios</h2>
+
         <div class="space-y-10 max-w-4xl mx-auto px-6">
             {studies.map((study) => (
-                    <div class="bg-white rounded-xl shadow p-6 hover:shadow-lg transition">
-                        <div class="flex justify-between items-center flex-wrap mb-2">
-                            <h3 class="text-xl font-semibold text-blue-800">{study.degree}</h3>
+                    <div class="bg-gray-800 rounded-2xl shadow-md p-6 hover:shadow-lg transition duration-300">
+                        <div class="flex justify-between items-start flex-wrap mb-2 gap-2">
+                            <h3 class="text-xl font-semibold text-white">{study.degree}</h3>
                             <span class="text-sm text-gray-500">{study.period}</span>
                         </div>
-                        <p class="text-sm text-gray-600 italic mb-2">{study.institution}</p>
-                        <p class="text-gray-700">{study.description}</p>
+                        <p class="text-sm text-gray-400 italic mb-2">{study.institution}</p>
+                        <p class="text-gray-300 leading-relaxed">{study.description}</p>
                     </div>
             ))}
         </div>
