@@ -3,10 +3,15 @@
     <div class="container position-relative text-center px-4 px-md-5">
       <h2 class="fw-bold mb-3 display-6">¿Aún tienes alguna pregunta?</h2>
       <p class="mb-4 fs-6">
-        No dudes en dejarnos tu número de teléfono. Nos pondremos en contacto contigo para resolver cualquier duda que tengas.
+        No dudes en dejarnos tu número de teléfono. Nos pondremos en contacto contigo para resolver
+        cualquier duda que tengas.
       </p>
 
-      <form id="subscribeForm" class="subscribe-form d-flex flex-column flex-md-row justify-content-center align-items-stretch gap-2 mx-auto" style="max-width: 500px; z-index: 2; position: relative;">
+      <form
+        id="subscribeForm"
+        class="subscribe-form d-flex flex-column flex-md-row justify-content-center align-items-stretch gap-2 mx-auto"
+        style="max-width: 500px; z-index: 2; position: relative;"
+      >
         <input
           type="tel"
           id="phoneInput"
@@ -24,15 +29,23 @@
           Suscríbete
         </button>
       </form>
-      <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+      <div
+        class="modal fade"
+        id="successModal"
+        tabindex="-1"
+        aria-labelledby="successModalLabel"
+        aria-hidden="true"
+      >
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content text-dark">
             <div class="modal-header">
               <h5 class="modal-title" id="successModalLabel">¡Gracias por suscribirte!</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"
+              ></button>
             </div>
             <div class="modal-body">
-              Nos pondremos en contacto contigo muy pronto. ¡Estás un paso más cerca de descubrir lo mejor de Edudu!
+              Nos pondremos en contacto contigo muy pronto. ¡Estás un paso más cerca de descubrir lo
+              mejor de Edudu!
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
@@ -40,7 +53,6 @@
           </div>
         </div>
       </div>
-
 
       <img src="/images/person.webp" class="circle-img top-start" alt="Persona 1" />
       <img src="/images/person2.webp" class="circle-img top-end" alt="Persona 2" />
@@ -50,27 +62,23 @@
   </div>
 
   <script>
-    document.getElementById("subscribeForm").addEventListener("submit", function (e) {
+    document.getElementById('subscribeForm').addEventListener('submit', function (e) {
       e.preventDefault();
 
-      const modal = new bootstrap.Modal(document.getElementById("successModal"));
+      const modal = new bootstrap.Modal(document.getElementById('successModal'));
       modal.show();
-      document.getElementById("phoneInput").value = "";
+      document.getElementById('phoneInput').value = '';
     });
   </script>
-
-
-
 </section>
 
 <style>
-  .container{
+  .container {
     padding: 5em 2em;
     background-color: #1c1405;
     border-radius: 24px;
     position: relative;
     overflow: hidden;
-
   }
 
   .contact-section .form-control:focus {
@@ -101,8 +109,6 @@
   .circle-img:hover {
     transform: scale(1.1);
   }
-
-  /* Posicionamiento decorativo */
   .top-start {
     top: 20px;
     left: 20px;
@@ -123,7 +129,6 @@
     right: 20px;
   }
 
-  /* Responsive: oculta imágenes decorativas en pantallas pequeñas */
   @media (max-width: 768px) {
     .circle-img {
       display: none;
