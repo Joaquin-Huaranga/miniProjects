@@ -1,0 +1,38 @@
+---
+import Header from './Header.astro';
+import Footer from './Footer.astro';
+import "../global.css"
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="/images/logo.png" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <title>EDUDU</title>
+    <style>
+      body {
+        font-family: 'Nunito', sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <Header /><style>
+      body {
+        font-family: 'Nunito', sans-serif;
+      }
+    </style>
+    <main>
+      <slot />
+    </main>
+    <Footer />
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+  </body>
+
+</html>
+

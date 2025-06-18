@@ -1,0 +1,110 @@
+<section class="areas-section py-5 bg-light">
+  <div class="container text-center">
+    <h2 class="section-title fw-bold mb-3">Las lecciones giran en torno a 4 áreas</h2>
+    <p class="section-description text-muted mb-5">
+      Diversas lecciones en torno a 4 temas: matemáticas, literatura, inglés y dibujo ayudan a los
+      niños a mejorar su conocimiento integral.
+    </p>
+
+    <div class="row g-4">
+      <div class="col-12 col-md-6 col-lg-3">
+        <div class="area-card p-3 bg-white shadow-sm rounded d-flex align-items-center gap-3 h-100">
+          <div
+            class="area-icon bg-math d-flex justify-content-center align-items-center rounded-circle"
+          >
+            <img src="images/icono-matematicas.png" alt="Matemáticas" width="32" />
+          </div>
+          <h5 class="mb-0 text-dark fw-semibold">Matemáticas</h5>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-6 col-lg-3">
+        <div class="area-card p-3 bg-white shadow-sm rounded d-flex align-items-center gap-3 h-100">
+          <div
+            class="area-icon bg-lit d-flex justify-content-center align-items-center rounded-circle"
+          >
+            <img src="images/icono-literatura.png" alt="Literatura" width="32" />
+          </div>
+          <h5 class="mb-0 text-dark fw-semibold">Literatura</h5>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-6 col-lg-3">
+        <div class="area-card p-3 bg-white shadow-sm rounded d-flex align-items-center gap-3 h-100">
+          <div
+            class="area-icon bg-eng d-flex justify-content-center align-items-center rounded-circle"
+          >
+            <img src="images/icono-ingles.png" alt="Inglés" width="32" />
+          </div>
+          <h5 class="mb-0 text-dark fw-semibold">Inglés</h5>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-6 col-lg-3">
+        <div class="area-card p-3 bg-white shadow-sm rounded d-flex align-items-center gap-3 h-100">
+          <div
+            class="area-icon bg-art d-flex justify-content-center align-items-center rounded-circle"
+          >
+            <img src="images/icono-arte.png" alt="Arte" width="32" />
+          </div>
+          <h5 class="mb-0 text-dark fw-semibold">Arte</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .areas-section {
+    background-color: #f8f9fa;
+  }
+
+  .section-title {
+    font-size: 2rem;
+    color: #222;
+  }
+
+  .section-description {
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .area-icon {
+    width: 60px;
+    height: 60px;
+    flex-shrink: 0;
+  }
+
+  .bg-math {
+    background-color: #ffd54f;
+  }
+
+  .bg-lit {
+    background-color: #90caf9;
+  }
+
+  .bg-eng {
+    background-color: #a5d6a7;
+  }
+
+  .bg-art {
+    background-color: #f48fb1;
+  }
+
+  .area-icon img {
+    max-width: 70%;
+    height: auto;
+  }
+
+  .area-card {
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+
+  .area-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  }
+</style>

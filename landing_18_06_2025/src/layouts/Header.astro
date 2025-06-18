@@ -1,0 +1,83 @@
+<header class="main-header py-3 shadow-sm">
+  <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+      <a class="navbar-brand" href="#">
+        <img src="images/logo.png" alt="Logo" class="d-inline-block align-top" style="height: 40px;" />
+      </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto align-items-center">
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Inicio <span class="visually-hidden">(actual)</span></a>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="#">Nosotros</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Cursos</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Profesores</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Cómo usar</a></li>
+        </ul>
+        <div class="d-flex gap-2 ms-lg-3 mt-3 mt-lg-0">
+          <button class="btn btn-outline-yellow">Unirse</button>
+          <button class="btn btn-yellow">Iniciar sesión</button>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .main-header {
+    background: linear-gradient(to right, #ffffff, #f8f9fa);
+    border-bottom: 1px solid #dee2e6;
+  }
+
+  .navbar .nav-link {
+    color: #343a40;
+    font-weight: 500;
+    transition: color 0.3s;
+  }
+
+  .navbar .nav-link:hover,
+  .navbar .nav-link.active {
+    color: #FEC458;
+  }
+
+  .navbar-toggler {
+    border-color: #FEC458;
+  }
+
+  .btn-outline-yellow {
+    border: 2px solid #FEC458;
+    color: #FEC458;
+    background-color: transparent;
+    transition: background-color 0.3s, color 0.3s;
+  }
+
+  .btn-outline-yellow:hover {
+    background-color: #FEC458;
+    color: #fff;
+  }
+
+  .btn-yellow {
+    background-color: #FEC458;
+    color: #fff;
+    border: none;
+    transition: background-color 0.3s ease;
+  }
+
+  .btn-yellow:hover {
+    background-color: #e6a73e;
+  }
+
+</style>
+

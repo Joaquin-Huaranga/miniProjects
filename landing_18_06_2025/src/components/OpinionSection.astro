@@ -1,0 +1,103 @@
+<section class="opinion-section py-5">
+  <div class="container position-relative">
+    <div class="row justify-content-center text-center mb-4">
+      <div class="col-12 col-lg-8">
+        <h2 class="fw-bold text-black">¿Qué dicen los estudiantes sobre Edudu?</h2>
+      </div>
+    </div>
+
+    <div id="opinionesCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+
+        <div class="carousel-item active">
+          <div class="row g-4 justify-content-center">
+            <div class="col-md-6 col-lg-4">
+              <div class="card border-0 shadow-sm p-4 text-center h-100">
+                <img src="/images/person.webp" alt="Jassica Andrew" class="rounded-circle mb-3 mx-auto" style="width: 80px; height: 80px; object-fit: cover;">
+                <h5 class="fw-bold mb-1">Jassica Andrew</h5>
+                <p class="text-warning mb-2">★★★★★</p>
+                <p class="text-muted">Mi hijo ha mejorado mucho después de terminar la escuela. Muchas gracias Edudu.</p>
+              </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+              <div class="card border-0 shadow-sm p-4 text-center h-100">
+                <img src="/images/person2.webp" alt="Darlene Robertson" class="rounded-circle mb-3 mx-auto" style="width: 80px; height: 80px; object-fit: cover;">
+                <h5 class="fw-bold mb-1">Darlene Robertson</h5>
+                <p class="text-warning mb-2">★★★★★</p>
+                <p class="text-muted">Mi hijo sabe escribir muy buenos ensayos. Su nivel de inglés también es mucho mejor.</p>
+              </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+              <div class="card border-0 shadow-sm p-4 text-center h-100">
+                <img src="/images/person3.jpg" alt="Melissa Russel" class="rounded-circle mb-3 mx-auto" style="width: 80px; height: 80px; object-fit: cover;">
+                <h5 class="fw-bold mb-1">Melissa Russel</h5>
+                <p class="text-warning mb-2">★★★★★</p>
+                <p class="text-muted">Mi hijo ha mejorado mucho después de terminar la escuela. Muchas gracias Edudu.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button class="carousel-control-prev custom-arrow" type="button" data-bs-target="#opinionesCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Anterior</span>
+      </button>
+      <button class="carousel-control-next custom-arrow" type="button" data-bs-target="#opinionesCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Siguiente</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<style>
+  .opinion-section {
+    background-color: #fff3e0;
+  }
+
+  .opinion-section .card {
+    border-radius: 1rem;
+  }
+
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    background-color: #ff9800;
+    border-radius: 50%;
+    padding: 15px;
+  }
+
+  .carousel-control-prev,
+  .carousel-control-next {
+    width: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .custom-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+  }
+
+  .carousel-control-prev {
+    left: -60px;
+  }
+
+  .carousel-control-next {
+    right: -60px;
+  }
+
+  @media (max-width: 768px) {
+    .carousel-control-prev {
+      left: -20px;
+    }
+
+    .carousel-control-next {
+      right: -20px;
+    }
+  }
+</style>
