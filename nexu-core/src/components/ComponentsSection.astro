@@ -1,0 +1,59 @@
+---
+import { Icon } from 'astro-icon/components'
+import { cardComponents } from "../data-list";
+---
+
+<section id="componentes" class="relative overflow-hidden bg-gray-950 py-28 text-gray-100">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <header class="mb-20 text-center">
+      <h2 class="text-4xl font-extrabold tracking-tight sm:text-5xl">
+        Nuestros <span class="bg-gradient-to-r from-blue-400 to-cyan-500 bg-clip-text text-transparent">Componentes</span>
+      </h2>
+      <p class="mx-auto mt-5 max-w-2xl text-gray-400 text-lg leading-relaxed">
+        Elegimos hardware de marcas líderes para que armes el equipo que imaginas, desde <em>gaming rigs</em> hasta <em>workstations</em> profesionales.
+      </p>
+    </header>
+
+    <div class="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-3">
+      {cardComponents.map((item) => (
+        <a
+          href={`/componentes/${item.slug}`}
+          class="group relative overflow-hidden rounded-2xl border border-gray-800 bg-gradient-to-br from-black/40 to-gray-900/50 backdrop-blur-lg shadow-lg hover:shadow-blue-500/20 transition duration-300 ease-in-out hover:border-blue-500 hover:scale-[1.015]"
+        >
+          <img
+            src={item.image}
+            alt={item.title}
+            class="w-full h-52 object-cover opacity-40 group-hover:opacity-30 transition duration-300"
+            loading="lazy"
+          />
+          <div class="absolute inset-0 flex flex-col justify-end p-6 z-10">
+            <Icon name={item.icon} width="36" class="mb-3 text-blue-500" />
+            <h3 class="text-xl font-semibold mb-1">{item.title}</h3>
+            <p class="text-sm text-gray-400">{item.description}</p>
+          </div>
+
+          <div class="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-transparent opacity-0 group-hover:opacity-10 transition duration-300"></div>
+        </a>
+      ))}
+    </div>
+  </div>
+
+  <div class="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 w-[900px] h-[900px] bg-blue-600/20 blur-[200px] animate-pulse-slow rounded-full"></div>
+</section>
+
+<style>
+  @keyframes pulse-slow {
+    0%, 100% {
+      transform: scale(1);
+      opacity: 0.75;
+    }
+    50% {
+      transform: scale(1.05);
+      opacity: 1;
+    }
+  }
+
+  .animate-pulse-slow {
+    animation: pulse-slow 12s ease-in-out infinite;
+  }
+</style>

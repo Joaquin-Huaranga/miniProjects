@@ -1,0 +1,44 @@
+[
+  {
+    "title": "Teclados",
+    "description": "Mecánicos, low‑profile y 60% con iluminación RGB",
+    "image": "/images/peripherals-images/teclado-image.webp",
+    "icon": "mdi:keyboard",
+    "slug": "keyboards"
+  },
+  {
+    "title": "Ratones",
+    "description": "Ópticos y láser ultra‑ligeros para e‑sports",
+    "image": "/images/peripherals-images/raton-image.webp",
+    "icon": "mdi:mouse",
+    "slug": "mice"
+  },
+  {
+    "title": "Monitores",
+    "description": "Alta tasa de refresco y paneles IPS/VA 4K",
+    "image": "/images/peripherals-images/monitor-image.webp",
+    "icon": "mdi:monitor",
+    "slug": "monitors"
+  },
+  {
+    "title": "Audífonos",
+    "description": "Sonido surround y cancelación de ruido para gaming",
+    "image": "/images/peripherals-images/audifono-image.png",
+    "icon": "mdi:headphones",
+    "slug": "headsets"
+  },
+  {
+    "title": "Micrófonos",
+    "description": "Calidad de estudio USB y XLR para streaming",
+    "image": "/images/peripherals-images/microfono-image.jpg",
+    "icon": "mdi:microphone",
+    "slug": "microphones"
+  },
+  {
+    "title": "Webcams",
+    "description": "Full HD / 4K con auto‑enfoque y HDR",
+    "image": "/images/peripherals-images/webcam-image.webp",
+    "icon": "mdi:webcam",
+    "slug": "webcams"
+  }
+]

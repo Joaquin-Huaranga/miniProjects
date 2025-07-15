@@ -1,0 +1,49 @@
+---
+import { Icon } from 'astro-icon/components';
+import {peripherals} from "../data-list";
+---
+
+<section id="perifericos" class="relative bg-[#0b0f19] text-white py-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
+  <div class="max-w-7xl mx-auto">
+    <header class="text-center mb-16">
+      <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">
+        Explora nuestros <span class="text-blue-500">Periféricos</span>
+      </h2>
+      <p class="mt-4 text-gray-400 max-w-2xl mx-auto">
+        Potencia tu experiencia digital con hardware especializado para precisión, velocidad y confort.
+      </p>
+    </header>
+
+    <div class="flex flex-col gap-12">
+      {peripherals.map((item, index) => (
+        <a
+          href={`/perifericos/${item.slug}`}
+          class={`group flex flex-col ${
+            index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'
+          } items-center gap-8 lg:gap-14 transition hover:scale-[1.01]`}
+        >
+          <div class="relative flex-shrink-0 w-full lg:w-1/2 overflow-hidden rounded-2xl shadow-xl">
+            <img
+              src={item.image}
+              alt={item.title}
+              class="w-full h-64 object-cover lg:h-72 brightness-90 group-hover:brightness-75 transition"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 bg-gradient-to-br from-transparent to-black/40 group-hover:to-black/60 transition"></div>
+          </div>
+
+          <div class="flex-1 text-left max-w-lg">
+            <Icon name={item.icon} width="36" class="text-blue-500 mb-4" />
+            <h3 class="text-xl font-semibold mb-2">{item.title}</h3>
+            <p class="text-gray-400 text-sm">{item.description}</p>
+            <span class="inline-block mt-4 text-sm text-blue-400 group-hover:underline">
+              Ver más →
+            </span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+
+  <div class="pointer-events-none absolute -top-24 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-blue-500/10 blur-[160px] rounded-full"></div>
+</section>

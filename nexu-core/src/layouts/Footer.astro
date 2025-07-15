@@ -1,0 +1,84 @@
+---
+import { Icon } from 'astro-icon/components';
+---
+
+<footer class="bg-black text-gray-300 pt-16 pb-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="grid gap-12 md:grid-cols-3">
+
+            <div>
+                <a href="/" class="flex items-center gap-3 mb-4">
+                    <img src="../../public/images/logo.webp" alt="Logo Nexucore" class="h-9 w-auto" />
+                </a>
+                <p class="text-sm leading-relaxed">
+                    Tu socio de confianza para componentes de PC, periféricos y soluciones tecnológicas de alto rendimiento.
+                </p>
+
+                <div class="flex gap-4 mt-6 text-2xl">
+                    <a href="#" aria-label="Facebook" class="hover:text-blue-500 transition">
+                        <Icon name="mdi:facebook" />
+                    </a>
+                    <a href="#" aria-label="X / Twitter" class="hover:text-blue-500 transition">
+                        <Icon name="mdi:twitter" />
+                    </a>
+                    <a href="#" aria-label="Instagram" class="hover:text-blue-500 transition">
+                        <Icon name="mdi:instagram" />
+                    </a>
+                    <a href="#" aria-label="YouTube" class="hover:text-blue-500 transition">
+                        <Icon name="mdi:youtube" />
+                    </a>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-8 text-sm">
+                <div>
+                    <h3 class="text-white font-semibold mb-4">Navegación</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="hover:text-blue-400 transition">Inicio</a></li>
+                        <li><a href="#componentes" class="hover:text-blue-400 transition">Componentes</a></li>
+                        <li><a href="#perifericos" class="hover:text-blue-400 transition">Periféricos</a></li>
+                        <li><a href="#" class="hover:text-blue-400 transition">Ofertas</a></li>
+                        <li><a href="#" class="hover:text-blue-400 transition">Contacto</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-white font-semibold mb-4">Soporte</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="hover:text-blue-400 transition">Preguntas frecuentes</a></li>
+                        <li><a href="#" class="hover:text-blue-400 transition">Política de envíos</a></li>
+                        <li><a href="#" class="hover:text-blue-400 transition">Garantías y devoluciones</a></li>
+                        <li><a href="#" class="hover:text-blue-400 transition">Términos y condiciones</a></li>
+                        <li><a href="#" class="hover:text-blue-400 transition">Aviso de privacidad</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div>
+                <h3 class="text-white font-semibold mb-4">Suscríbete</h3>
+                <p class="text-sm mb-6">
+                    Recibe ofertas exclusivas y noticias sobre los últimos lanzamientos de hardware.
+                </p>
+                <form class="flex flex-col xl:flex-row gap-3">
+                    <input
+                            type="email"
+                            placeholder="Tu correo electrónico"
+                            class="flex-1 bg-white/10 placeholder-gray-400 text-sm rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    />
+                    <button
+                            type="submit"
+                            class="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-md transition"
+                    >
+                        Suscribirme
+                        <Icon name="mdi:send" width="18" />
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Divider -->
+        <div class="border-t border-gray-800 mt-14 pt-6 text-sm text-center">
+            © {new Date().getFullYear()} Nexucore. Todos los derechos reservados.
+        </div>
+    </div>
+</footer>

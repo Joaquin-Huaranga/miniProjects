@@ -1,0 +1,44 @@
+[
+  {
+    "title": "Procesadores",
+    "description": "AMD Ryzen & Intel Core de última generación",
+    "image": "/images/cards-images/procesadores-image.webp",
+    "icon": "mdi:cpu-64-bit",
+    "slug": "processor"
+  },
+  {
+    "title": "Tarjetas Graficas",
+    "description": "NVIDIA™ GeForce & AMD Radeon para gaming y creación",
+    "image": "/images/cards-images/tarjeta-grafica-image.webp",
+    "icon": "mdi:television",
+    "slug": "graphic-card"
+  },
+  {
+    "title": "Placas Madre",
+    "description": "Chipsets X670, Z790 y más de ASUS, MSI, Gigabyte…",
+    "image": "/images/cards-images/placa-madre-image.webp",
+    "icon": "mdi:memory",
+    "slug": "\nmotherboards"
+  },
+  {
+    "title": "Memorias RAM",
+    "description": "DDR4 y DDR5 de alto rendimiento y baja latencia",
+    "image": "/images/cards-images/memoria-ram-image.webp",
+    "icon": "mdi:memory",
+    "slug": "ram-memory"
+  },
+  {
+    "title": "Almacenamiento",
+    "description": "SSD NVMe Gen4, SATA y HDD de gran capacidad",
+    "image": "/images/cards-images/disco-duro-image.webp",
+    "icon": "mdi:harddisk",
+    "slug": "hard-disk"
+  },
+  {
+    "title": "Fuentes",
+    "description": "Certificaciones Bronze, Gold y Platinum",
+    "image": "/images/cards-images/fuente-image.webp",
+    "icon": "mdi:power-plug",
+    "slug": "sources"
+  }
+]

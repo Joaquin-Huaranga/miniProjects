@@ -1,0 +1,65 @@
+---
+import { Icon } from 'astro-icon/components'
+---
+
+<section
+  class="relative overflow-hidden bg-gradient-to-b from-black via-black to-gray-900 pt-24 pb-20 text-white lg:pt-32"
+>
+  <div class="mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
+    <div class="space-y-6">
+      <span
+        class="inline-block rounded-full bg-blue-600/10 px-3 py-1 text-xs tracking-widest text-blue-400 uppercase"
+      >
+        Hardware de alto desempeño
+      </span>
+
+      <h1 class="text-4xl leading-tight font-extrabold sm:text-5xl lg:text-6xl">
+        Potencia tu <span
+          class="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent"
+          >sistema</span
+        ><br />
+        al siguiente nivel
+      </h1>
+
+      <p class="max-w-md text-lg text-gray-300">
+        Descubre las últimas tarjetas gráficas, procesadores y periféricos premium, seleccionados
+        para gamers, creadores y entusiastas del rendimiento extremo.
+      </p>
+
+      <div class="flex flex-col gap-4 pt-2 sm:flex-row">
+        <a
+          href="#productos"
+          class="inline-flex items-center justify-center gap-2 rounded-md bg-blue-600 px-6 py-3 text-sm font-semibold transition hover:bg-blue-700"
+        >
+          <Icon name="mdi:cart-outline" width="20" />
+          Comprar ahora
+        </a>
+
+        <a
+          href="#componentes"
+          class="inline-flex items-center justify-center gap-2 rounded-md border border-gray-500 px-6 py-3 text-sm font-semibold transition hover:border-blue-500 hover:text-blue-400"
+        >
+          <Icon name="mdi:chip" width="20" />
+          Ver componentes
+        </a>
+      </div>
+    </div>
+
+    <div class="relative">
+      <div class="pointer-events-none absolute inset-0 h-full w-full -translate-y-1/4">
+        <div
+          class="absolute top-1/2 left-1/2 h-[640px] w-[640px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-500/20 blur-[160px]"
+        >
+        </div>
+      </div>
+
+      <!-- Replace the src with your high‑res hero image (PNG / WebP / SVG) -->
+      <img
+        src="../../public/images/hero-image.webp"
+        alt="PC armado con iluminación RGB y componentes de alto rendimiento"
+        class="relative w-full rounded-xl shadow-2xl"
+        loading="eager"
+      />
+    </div>
+  </div>
+</section>

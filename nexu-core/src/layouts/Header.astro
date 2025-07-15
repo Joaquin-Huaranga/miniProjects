@@ -1,0 +1,77 @@
+---
+import { Icon } from 'astro-icon/components';
+---
+
+<header class="fixed inset-x-0 top-0 z-50 backdrop-blur-md bg-white/70 text-black shadow-xl">
+  <div class="max-w-7xl mx-auto flex items-center justify-between h-16 px-4 sm:px-6 lg:px-8">
+    <a href="/" aria-label="Nexucore" class="flex items-center gap-3">
+      <img src="../../public/images/logo.webp" alt="Logo Nexucore" class="h-12 w-auto select-none" />
+    </a>
+
+    <nav class="hidden lg:flex items-center gap-10 font-medium">
+      <a href="#" class="relative hover:text-blue-500 group">
+        Inicio
+        <span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-blue-500 transition-all group-hover:w-full"></span>
+      </a>
+      <a href="#componentes" class="relative hover:text-blue-500 group">
+        Componentes
+        <span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-blue-500 transition-all group-hover:w-full"></span>
+      </a>
+      <a href="#perifericos" class="relative hover:text-blue-500 group">
+        Periféricos
+        <span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-blue-500 transition-all group-hover:w-full"></span>
+      </a>
+      <a href="#" class="relative hover:text-blue-500 group">
+        Ofertas
+        <span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-blue-500 transition-all group-hover:w-full"></span>
+      </a>
+      <a href="#" class="relative hover:text-blue-500 group">
+        Contacto
+        <span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-blue-500 transition-all group-hover:w-full"></span>
+      </a>
+    </nav>
+
+    <div class="hidden lg:flex items-center gap-5">
+      <div class="relative">
+        <input
+          type="text"
+          placeholder="Buscar…"
+          class="peer bg-white/5 placeholder-gray-400 text-sm rounded-full pl-10 pr-3 py-1.5 focus:outline-none ring-black ring-2 focus:ring-blue-500"
+        />
+        <Icon
+          name="mdi:magnify"
+          class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 peer-focus:text-blue-400"
+        />
+      </div>
+
+      <button class="relative p-2 hover:text-blue-400 transition text-xl">
+        <Icon name="mdi:cart-outline" width="24" />
+        <span class="absolute -top-1 -right-1 bg-blue-500 text-xs rounded-full px-1">2</span>
+      </button>
+
+      <button class="p-2 hover:text-blue-400 transition text-xl">
+        <Icon name="mdi:account-circle-outline" width="24" />
+      </button>
+    </div>
+
+    <button id="hamburger" class="lg:hidden p-2 hover:text-blue-400 transition">
+      <Icon name="mdi:menu" width="28" />
+    </button>
+  </div>
+
+  <div id="mobile-menu" class="lg:hidden absolute inset-x-0 top-16 bg-white/90 backdrop-blur-lg border-t border-gray-800 hidden">
+    <nav class="flex flex-col items-center gap-6 py-6 text-lg">
+      <a href="#" class="hover:text-blue-400">Inicio</a>
+      <a href="#" class="hover:text-blue-400">Componentes</a>
+      <a href="#" class="hover:text-blue-400">Periféricos</a>
+      <a href="#" class="hover:text-blue-400">Ofertas</a>
+      <a href="#" class="hover:text-blue-400">Contacto</a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  document.getElementById('hamburger')?.addEventListener('click', () => {
+    document.getElementById('mobile-menu')?.classList.toggle('hidden');
+  });
+</script>
