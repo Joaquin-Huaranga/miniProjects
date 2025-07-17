@@ -1,20 +1,22 @@
 ---
 const { item } = Astro.props;
 ---
-
-<article class="p-4 rounded-xl shadow hover:shadow-lg transition group">
+<article class="p-4 rounded-xl shadow-md hover:shadow-blue-500/40 transition group bg-gray-900 border border-blue-800 text-blue-100">
   <img
     src={item.img}
     alt={item.name}
     loading="lazy"
-    class="w-full h-40 object-cover rounded-lg mb-3 group-hover:scale-105 duration-300"
+    class="w-full h-40 object-cover rounded-lg mb-3 group-hover:scale-105 duration-300 transition-transform"
   />
 
-  <h3 class="font-semibold text-lg">{item.name}</h3>
+  <h3 class="font-semibold text-lg text-blue-300 group-hover:text-blue-400 transition-colors">
+    {item.name}
+  </h3>
 
-  <p class="text-sm opacity-80">{item.desc}</p>
+  <p class="text-sm text-blue-200 opacity-80">{item.desc}</p>
 
-  <p class="mt-2 text-blue-600 font-bold text-lg">
+  <p class="mt-2 text-blue-400 font-bold text-lg">
     {item.price.toLocaleString('es-PE', { style: 'currency', currency: 'USD' })}
   </p>
 </article>
+

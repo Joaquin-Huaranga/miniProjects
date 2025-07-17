@@ -2,7 +2,7 @@
   "processor": {
     "title": "Procesadores",
     "subtitle": "AMD Ryzen & Intel Core de última generación",
-    "heroImage": "/images/sections/processor-hero.webp",
+    "heroImage": "/images/processor-hero-image.jpg",
     "icon": "mdi:cpu-64-bit",
     "intro": "Descubre los CPUs más potentes para gaming, creación de contenido y workstation.",
     "highlights": [
@@ -77,7 +77,7 @@
   "graphic-card": {
     "title": "Tarjetas Gráficas",
     "subtitle": "NVIDIA™ GeForce & AMD Radeon para gaming y creación",
-    "heroImage": "/images/sections/gpu-hero.webp",
+    "heroImage": "/images/graficas-hero-image.jpg",
     "icon": "mdi:television",
     "intro": "Elige la GPU perfecta para 1080p, 1440p o 4K y desata todo el potencial del ray tracing.",
     "highlights": [
