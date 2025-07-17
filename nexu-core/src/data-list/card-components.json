@@ -18,7 +18,7 @@
     "description": "Chipsets X670, Z790 y más de ASUS, MSI, Gigabyte…",
     "image": "/images/cards-images/placa-madre-image.webp",
     "icon": "mdi:memory",
-    "slug": "\nmotherboards"
+    "slug": "motherboards"
   },
   {
     "title": "Memorias RAM",

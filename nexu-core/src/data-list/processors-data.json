@@ -1,0 +1,456 @@
+{
+  "processor": {
+    "title": "Procesadores",
+    "subtitle": "AMD Ryzen & Intel Core de última generación",
+    "heroImage": "/images/sections/processor-hero.webp",
+    "icon": "mdi:cpu-64-bit",
+    "intro": "Descubre los CPUs más potentes para gaming, creación de contenido y workstation.",
+    "highlights": [
+      "Arquitecturas Zen 5 y Raptor Lake‑S",
+      "Hasta 16 núcleos y 32 hilos",
+      "Tecnologías PCIe 5.0 y DDR5",
+      "Gráficos integrados RDNA 3/Intel Xe"
+    ],
+    "cta": {
+      "label": "Ver procesadores",
+      "url": "/productos/procesadores"
+    },
+    "items": [
+      {
+        "sku": "RYZEN9-7950X",
+        "name": "AMD Ryzen 9 7950X3D",
+        "price": 739.90,
+        "desc": "16 núcleos • 32 hilos • 5.7 GHz boost • 128 MB 3D V‑Cache",
+        "img": "/images/products/cpu-7950x3d.webp"
+      },
+      {
+        "sku": "RYZEN7-7700",
+        "name": "AMD Ryzen 7 7700",
+        "price": 299.90,
+        "desc": "8 núcleos • 16 hilos • 5.3 GHz boost • iGPU RDNA 2",
+        "img": "/images/products/cpu-7700.webp"
+      },
+      {
+        "sku": "I9-14900K",
+        "name": "Intel Core i9‑14900K",
+        "price": 589.00,
+        "desc": "24 núcleos híbridos • 6.0 GHz boost • UHD 770",
+        "img": "/images/products/cpu-14900k.webp"
+      },
+      {
+        "sku": "I7-14700KF",
+        "name": "Intel Core i7‑14700KF",
+        "price": 409.00,
+        "desc": "20 núcleos híbridos • 5.6 GHz boost • sin iGPU",
+        "img": "/images/products/cpu-14700kf.webp"
+      },
+      {
+        "sku": "RYZEN5-7600X",
+        "name": "AMD Ryzen 5 7600X",
+        "price": 229.90,
+        "desc": "6 núcleos • 12 hilos • 5.3 GHz boost • AM5",
+        "img": "/images/products/cpu-7600x.webp"
+      },
+      {
+        "sku": "I5-14600K",
+        "name": "Intel Core i5‑14600K",
+        "price": 319.00,
+        "desc": "14 núcleos híbridos • 5.3 GHz boost • UHD 770",
+        "img": "/images/products/cpu-14600k.webp"
+      },
+      {
+        "sku": "RYZEN7-5800X3D",
+        "name": "AMD Ryzen 7 5800X3D",
+        "price": 309.00,
+        "desc": "8 núcleos • 16 hilos • 4.5 GHz boost • 96 MB 3D V‑Cache",
+        "img": "/images/products/cpu-5800x3d.webp"
+      },
+      {
+        "sku": "I3-14100",
+        "name": "Intel Core i3‑14100",
+        "price": 129.00,
+        "desc": "4 núcleos • 8 hilos • 4.7 GHz boost • UHD 730",
+        "img": "/images/products/cpu-14100.webp"
+      }
+    ]
+  },
+  "graphic-card": {
+    "title": "Tarjetas Gráficas",
+    "subtitle": "NVIDIA™ GeForce & AMD Radeon para gaming y creación",
+    "heroImage": "/images/sections/gpu-hero.webp",
+    "icon": "mdi:television",
+    "intro": "Elige la GPU perfecta para 1080p, 1440p o 4K y desata todo el potencial del ray tracing.",
+    "highlights": [
+      "Serie RTX 40 (SUPER) y Radeon RX 7000",
+      "Hasta 24 GB de memoria GDDR6X/GDDR6",
+      "Codificadores AV1 para streaming",
+      "DLSS 3.5 / FSR 3 Frame Generation"
+    ],
+    "cta": {
+      "label": "Ver tarjetas gráficas",
+      "url": "/productos/gpus"
+    },
+    "items": [
+      {
+        "sku": "RYZEN9-7950X",
+        "name": "AMD Ryzen 9 7950X3D",
+        "price": 739.90,
+        "desc": "16 núcleos • 32 hilos • 5.7 GHz boost • 128 MB 3D V‑Cache",
+        "img": "/images/products/cpu-7950x3d.webp"
+      },
+      {
+        "sku": "RYZEN7-7700",
+        "name": "AMD Ryzen 7 7700",
+        "price": 299.90,
+        "desc": "8 núcleos • 16 hilos • 5.3 GHz boost • iGPU RDNA 2",
+        "img": "/images/products/cpu-7700.webp"
+      },
+      {
+        "sku": "I9-14900K",
+        "name": "Intel Core i9‑14900K",
+        "price": 589.00,
+        "desc": "24 núcleos híbridos • 6.0 GHz boost • UHD 770",
+        "img": "/images/products/cpu-14900k.webp"
+      },
+      {
+        "sku": "I7-14700KF",
+        "name": "Intel Core i7‑14700KF",
+        "price": 409.00,
+        "desc": "20 núcleos híbridos • 5.6 GHz boost • sin iGPU",
+        "img": "/images/products/cpu-14700kf.webp"
+      },
+      {
+        "sku": "RYZEN5-7600X",
+        "name": "AMD Ryzen 5 7600X",
+        "price": 229.90,
+        "desc": "6 núcleos • 12 hilos • 5.3 GHz boost • AM5",
+        "img": "/images/products/cpu-7600x.webp"
+      },
+      {
+        "sku": "I5-14600K",
+        "name": "Intel Core i5‑14600K",
+        "price": 319.00,
+        "desc": "14 núcleos híbridos • 5.3 GHz boost • UHD 770",
+        "img": "/images/products/cpu-14600k.webp"
+      },
+      {
+        "sku": "RYZEN7-5800X3D",
+        "name": "AMD Ryzen 7 5800X3D",
+        "price": 309.00,
+        "desc": "8 núcleos • 16 hilos • 4.5 GHz boost • 96 MB 3D V‑Cache",
+        "img": "/images/products/cpu-5800x3d.webp"
+      },
+      {
+        "sku": "I3-14100",
+        "name": "Intel Core i3‑14100",
+        "price": 129.00,
+        "desc": "4 núcleos • 8 hilos • 4.7 GHz boost • UHD 730",
+        "img": "/images/products/cpu-14100.webp"
+      }
+    ]
+  },
+
+  "motherboards": {
+    "title": "Placas Madre",
+    "subtitle": "Chipsets X670, Z790 y más de ASUS, MSI, Gigabyte…",
+    "heroImage": "/images/sections/motherboard-hero.webp",
+    "icon": "mdi:memory",
+    "intro": "Compatibilidad, overclocking y conectividad de última generación en un solo lugar.",
+    "highlights": [
+      "Soporte DDR5 hasta 8000 MT/s OC",
+      "PCIe 5.0 x16 y M.2",
+      "Wi‑Fi 7 y 10 GbE LAN",
+      "Refrigeración VRM de alto desempeño"
+    ],
+    "cta": {
+      "label": "Ver placas madre",
+      "url": "/productos/placas-madre"
+    },
+    "items": [
+      {
+        "sku": "RYZEN9-7950X",
+        "name": "AMD Ryzen 9 7950X3D",
+        "price": 739.90,
+        "desc": "16 núcleos • 32 hilos • 5.7 GHz boost • 128 MB 3D V‑Cache",
+        "img": "/images/products/cpu-7950x3d.webp"
+      },
+      {
+        "sku": "RYZEN7-7700",
+        "name": "AMD Ryzen 7 7700",
+        "price": 299.90,
+        "desc": "8 núcleos • 16 hilos • 5.3 GHz boost • iGPU RDNA 2",
+        "img": "/images/products/cpu-7700.webp"
+      },
+      {
+        "sku": "I9-14900K",
+        "name": "Intel Core i9‑14900K",
+        "price": 589.00,
+        "desc": "24 núcleos híbridos • 6.0 GHz boost • UHD 770",
+        "img": "/images/products/cpu-14900k.webp"
+      },
+      {
+        "sku": "I7-14700KF",
+        "name": "Intel Core i7‑14700KF",
+        "price": 409.00,
+        "desc": "20 núcleos híbridos • 5.6 GHz boost • sin iGPU",
+        "img": "/images/products/cpu-14700kf.webp"
+      },
+      {
+        "sku": "RYZEN5-7600X",
+        "name": "AMD Ryzen 5 7600X",
+        "price": 229.90,
+        "desc": "6 núcleos • 12 hilos • 5.3 GHz boost • AM5",
+        "img": "/images/products/cpu-7600x.webp"
+      },
+      {
+        "sku": "I5-14600K",
+        "name": "Intel Core i5‑14600K",
+        "price": 319.00,
+        "desc": "14 núcleos híbridos • 5.3 GHz boost • UHD 770",
+        "img": "/images/products/cpu-14600k.webp"
+      },
+      {
+        "sku": "RYZEN7-5800X3D",
+        "name": "AMD Ryzen 7 5800X3D",
+        "price": 309.00,
+        "desc": "8 núcleos • 16 hilos • 4.5 GHz boost • 96 MB 3D V‑Cache",
+        "img": "/images/products/cpu-5800x3d.webp"
+      },
+      {
+        "sku": "I3-14100",
+        "name": "Intel Core i3‑14100",
+        "price": 129.00,
+        "desc": "4 núcleos • 8 hilos • 4.7 GHz boost • UHD 730",
+        "img": "/images/products/cpu-14100.webp"
+      }
+    ]
+  },
+
+  "ram-memory": {
+    "title": "Memorias RAM",
+    "subtitle": "DDR4 y DDR5 de alto rendimiento y baja latencia",
+    "heroImage": "/images/sections/ram-hero.webp",
+    "icon": "mdi:memory",
+    "intro": "El boost que tu PC necesita para multitarea extrema y FPS estables.",
+    "highlights": [
+      "Kits DDR5 7200 MT/s CL34",
+      "Diseños RGB direccionables",
+      "ECC REG para servidores",
+      "Perfis Intel XMP 3.0 / AMD EXPO"
+    ],
+    "cta": {
+      "label": "Ver memorias RAM",
+      "url": "/productos/memorias"
+    },
+    "items": [
+      {
+        "sku": "RYZEN9-7950X",
+        "name": "AMD Ryzen 9 7950X3D",
+        "price": 739.90,
+        "desc": "16 núcleos • 32 hilos • 5.7 GHz boost • 128 MB 3D V‑Cache",
+        "img": "/images/products/cpu-7950x3d.webp"
+      },
+      {
+        "sku": "RYZEN7-7700",
+        "name": "AMD Ryzen 7 7700",
+        "price": 299.90,
+        "desc": "8 núcleos • 16 hilos • 5.3 GHz boost • iGPU RDNA 2",
+        "img": "/images/products/cpu-7700.webp"
+      },
+      {
+        "sku": "I9-14900K",
+        "name": "Intel Core i9‑14900K",
+        "price": 589.00,
+        "desc": "24 núcleos híbridos • 6.0 GHz boost • UHD 770",
+        "img": "/images/products/cpu-14900k.webp"
+      },
+      {
+        "sku": "I7-14700KF",
+        "name": "Intel Core i7‑14700KF",
+        "price": 409.00,
+        "desc": "20 núcleos híbridos • 5.6 GHz boost • sin iGPU",
+        "img": "/images/products/cpu-14700kf.webp"
+      },
+      {
+        "sku": "RYZEN5-7600X",
+        "name": "AMD Ryzen 5 7600X",
+        "price": 229.90,
+        "desc": "6 núcleos • 12 hilos • 5.3 GHz boost • AM5",
+        "img": "/images/products/cpu-7600x.webp"
+      },
+      {
+        "sku": "I5-14600K",
+        "name": "Intel Core i5‑14600K",
+        "price": 319.00,
+        "desc": "14 núcleos híbridos • 5.3 GHz boost • UHD 770",
+        "img": "/images/products/cpu-14600k.webp"
+      },
+      {
+        "sku": "RYZEN7-5800X3D",
+        "name": "AMD Ryzen 7 5800X3D",
+        "price": 309.00,
+        "desc": "8 núcleos • 16 hilos • 4.5 GHz boost • 96 MB 3D V‑Cache",
+        "img": "/images/products/cpu-5800x3d.webp"
+      },
+      {
+        "sku": "I3-14100",
+        "name": "Intel Core i3‑14100",
+        "price": 129.00,
+        "desc": "4 núcleos • 8 hilos • 4.7 GHz boost • UHD 730",
+        "img": "/images/products/cpu-14100.webp"
+      }
+    ]
+  },
+
+  "hard-disk": {
+    "title": "Almacenamiento",
+    "subtitle": "SSD NVMe Gen 4, SATA y HDD de gran capacidad",
+    "heroImage": "/images/sections/storage-hero.webp",
+    "icon": "mdi:harddisk",
+    "intro": "Velocidad para tu sistema y espacio para tu biblioteca de juegos y proyectos.",
+    "highlights": [
+      "SSD PCIe Gen 4 ×4 hasta 14 000 MB/s",
+      "Unidades híbridas SSHD",
+      "Cifrado AES‑256 y TCG Opal",
+      "Garantías de 5 a 10 años"
+    ],
+    "cta": {
+      "label": "Ver unidades",
+      "url": "/productos/almacenamiento"
+    },
+    "items": [
+      {
+        "sku": "RYZEN9-7950X",
+        "name": "AMD Ryzen 9 7950X3D",
+        "price": 739.90,
+        "desc": "16 núcleos • 32 hilos • 5.7 GHz boost • 128 MB 3D V‑Cache",
+        "img": "/images/products/cpu-7950x3d.webp"
+      },
+      {
+        "sku": "RYZEN7-7700",
+        "name": "AMD Ryzen 7 7700",
+        "price": 299.90,
+        "desc": "8 núcleos • 16 hilos • 5.3 GHz boost • iGPU RDNA 2",
+        "img": "/images/products/cpu-7700.webp"
+      },
+      {
+        "sku": "I9-14900K",
+        "name": "Intel Core i9‑14900K",
+        "price": 589.00,
+        "desc": "24 núcleos híbridos • 6.0 GHz boost • UHD 770",
+        "img": "/images/products/cpu-14900k.webp"
+      },
+      {
+        "sku": "I7-14700KF",
+        "name": "Intel Core i7‑14700KF",
+        "price": 409.00,
+        "desc": "20 núcleos híbridos • 5.6 GHz boost • sin iGPU",
+        "img": "/images/products/cpu-14700kf.webp"
+      },
+      {
+        "sku": "RYZEN5-7600X",
+        "name": "AMD Ryzen 5 7600X",
+        "price": 229.90,
+        "desc": "6 núcleos • 12 hilos • 5.3 GHz boost • AM5",
+        "img": "/images/products/cpu-7600x.webp"
+      },
+      {
+        "sku": "I5-14600K",
+        "name": "Intel Core i5‑14600K",
+        "price": 319.00,
+        "desc": "14 núcleos híbridos • 5.3 GHz boost • UHD 770",
+        "img": "/images/products/cpu-14600k.webp"
+      },
+      {
+        "sku": "RYZEN7-5800X3D",
+        "name": "AMD Ryzen 7 5800X3D",
+        "price": 309.00,
+        "desc": "8 núcleos • 16 hilos • 4.5 GHz boost • 96 MB 3D V‑Cache",
+        "img": "/images/products/cpu-5800x3d.webp"
+      },
+      {
+        "sku": "I3-14100",
+        "name": "Intel Core i3‑14100",
+        "price": 129.00,
+        "desc": "4 núcleos • 8 hilos • 4.7 GHz boost • UHD 730",
+        "img": "/images/products/cpu-14100.webp"
+      }
+    ]
+  },
+
+  "sources": {
+    "title": "Fuentes de Poder",
+    "subtitle": "Certificaciones Bronze, Gold y Platinum",
+    "heroImage": "/images/sections/psu-hero.webp",
+    "icon": "mdi:power-plug",
+    "intro": "Eficiencia, estabilidad y protección para los componentes más exigentes.",
+    "highlights": [
+      "ATX 3.1 12V‑2×6 – listas para RTX 40",
+      "Ventiladores 0 dB y modos ECO",
+      "Capacitores japoneses 105 °C",
+      "Garantía hasta 12 años"
+    ],
+    "cta": {
+      "label": "Ver fuentes",
+      "url": "/productos/fuentes"
+    },
+    "items": [
+      {
+        "sku": "RYZEN9-7950X",
+        "name": "AMD Ryzen 9 7950X3D",
+        "price": 739.90,
+        "desc": "16 núcleos • 32 hilos • 5.7 GHz boost • 128 MB 3D V‑Cache",
+        "img": "/images/products/cpu-7950x3d.webp"
+      },
+      {
+        "sku": "RYZEN7-7700",
+        "name": "AMD Ryzen 7 7700",
+        "price": 299.90,
+        "desc": "8 núcleos • 16 hilos • 5.3 GHz boost • iGPU RDNA 2",
+        "img": "/images/products/cpu-7700.webp"
+      },
+      {
+        "sku": "I9-14900K",
+        "name": "Intel Core i9‑14900K",
+        "price": 589.00,
+        "desc": "24 núcleos híbridos • 6.0 GHz boost • UHD 770",
+        "img": "/images/products/cpu-14900k.webp"
+      },
+      {
+        "sku": "I7-14700KF",
+        "name": "Intel Core i7‑14700KF",
+        "price": 409.00,
+        "desc": "20 núcleos híbridos • 5.6 GHz boost • sin iGPU",
+        "img": "/images/products/cpu-14700kf.webp"
+      },
+      {
+        "sku": "RYZEN5-7600X",
+        "name": "AMD Ryzen 5 7600X",
+        "price": 229.90,
+        "desc": "6 núcleos • 12 hilos • 5.3 GHz boost • AM5",
+        "img": "/images/products/cpu-7600x.webp"
+      },
+      {
+        "sku": "I5-14600K",
+        "name": "Intel Core i5‑14600K",
+        "price": 319.00,
+        "desc": "14 núcleos híbridos • 5.3 GHz boost • UHD 770",
+        "img": "/images/products/cpu-14600k.webp"
+      },
+      {
+        "sku": "RYZEN7-5800X3D",
+        "name": "AMD Ryzen 7 5800X3D",
+        "price": 309.00,
+        "desc": "8 núcleos • 16 hilos • 4.5 GHz boost • 96 MB 3D V‑Cache",
+        "img": "/images/products/cpu-5800x3d.webp"
+      },
+      {
+        "sku": "I3-14100",
+        "name": "Intel Core i3‑14100",
+        "price": 129.00,
+        "desc": "4 núcleos • 8 hilos • 4.7 GHz boost • UHD 730",
+        "img": "/images/products/cpu-14100.webp"
+      }
+    ]
+  }
+}
